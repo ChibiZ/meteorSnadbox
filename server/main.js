@@ -1,9 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 import { LinksCollection } from '/imports/api/links';
+import { Accounts } from 'meteor/accounts-base';
 
 async function insertLink({ title, url }) {
   await LinksCollection.insertAsync({ title, url, createdAt: new Date() });
 }
+
+const SEED_USERNAME = 'test';
+const SEED_PASSWORD = 'test';
 
 Meteor.startup(async () => {
   // If the Links collection is empty, add some data.
@@ -33,5 +37,14 @@ Meteor.startup(async () => {
   // In order to be fetched in real-time to the clients
   Meteor.publish("links", function () {
     return LinksCollection.find();
+  });
+
+  Meteor.startup(async () => {
+    if (!(await Accounts.findUserByUsername(SEED_USERNAME))) {
+      await Accounts.createUser({
+        username: SEED_USERNAME,
+        password: SEED_PASSWORD,
+      });
+    }
   });
 });
