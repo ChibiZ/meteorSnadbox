@@ -1,28 +1,30 @@
-import { Meteor } from 'meteor/meteor';
-import React from 'react';
-import { useTracker } from "meteor/react-meteor-data";
-import { Hello } from './Hello.jsx';
-import { Info } from './Info.jsx';
-import { Flow } from './Flow.jsx';
-import { LoginForm } from './LoginForm.jsx';
-import { RegForm } from './RegForm.jsx';
-// import { LoginWithGithub } from './TODOLoginWithGithub.jsx';
+import React, { Suspense } from 'react';
+
+import { UIProvider } from './components/ui-provider';
+import { Loading } from './components/loading';
+import { Routes } from './routes';
+import { Tracker } from 'meteor/tracker';
+
+import './styles/styles.css';
 
 export const App = () => {
-  const user = useTracker(() => Meteor.user());
-  const logout = () => Meteor.logout();
+  const [isLoading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    let tracker = Tracker.autorun(() => {
+      if (Accounts.loginServicesConfigured()) {
+        setLoading(false);
+      }
+    });
+
+    return () => tracker.stop();
+  }, []);
+
+  if (isLoading) return <Loading />;
+
   return (
-  <div>
-    {/* <LoginWithGithub/> */}
-    <Hello/>
-    {!user && <LoginForm/>}
-    {user && 
-      <div className="user" onClick={logout}>
-        Logout: {user.username}
-      </div>
-    }
-    <Info/>
-    <Flow/>
-    {!user && <RegForm/>}
-  </div>)
+    <UIProvider>
+      <Routes />
+    </UIProvider>
+  );
 };
