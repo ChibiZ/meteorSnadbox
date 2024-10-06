@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { Logout } from './logout';
-
+import { Logo } from './Logo';
 export function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
 
@@ -27,14 +27,16 @@ export function Navbar() {
         borderColor={useColorModeValue('gray.200', 'gray.900')}
         align="center"
       >
+        <a href="/" style={{ width: 70, marginRight: 20 }}>
+          <Logo />
+        </a>
         <Flex flex={{ base: 1 }} justify="start">
           <Text
             as="span"
-            bgGradient="linear(to-l, #675AAA, #4399E1)"
-            bgClip="text"
             fontWeight="bold"
             fontFamily="heading"
             textAlign="left"
+            color={'#000'}
           >
             Матрица компетенций
           </Text>

@@ -1,12 +1,15 @@
 import { Meteor } from 'meteor/meteor';
 import { useToast } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+import React from 'react';
 
 export const authHook = () => {
   const toast = useToast();
+  const [isLoading, setLoading] = React.useState(false);
 
   const navigate = useNavigate();
   const registerUser = async ({ username, password }) => {
+    setLoading(true);
     Accounts.createUser(
       {
         username: username,
@@ -25,16 +28,24 @@ export const authHook = () => {
           });
 
           console.log(error);
+          setLoading(false);
+
           return;
         }
-        Meteor.loginWithPassword(username, password);
+        Meteor.loginWithPassword(username, password).then(() => {
+          setLoading(false);
+        });
         navigate('/');
       },
     );
   };
 
   const loginUser = ({ username, password }) => {
+    setLoading(true);
+
     Meteor.loginWithPassword(username, password, (error) => {
+      setLoading(false);
+
       if (error) {
         toast({
           title: 'Ошибка логина',
@@ -50,5 +61,5 @@ export const authHook = () => {
     });
   };
 
-  return { loginUser, registerUser };
+  return { loginUser, registerUser, isLoading };
 };

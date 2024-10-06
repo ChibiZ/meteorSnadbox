@@ -25,7 +25,7 @@ export function SignInPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const { loginUser, registerUser } = authHook();
+  const { loginUser, registerUser, isLoading } = authHook();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -38,7 +38,6 @@ export function SignInPage() {
   };
 
   const errors = {};
-  const isSubmitting = false;
 
   if (user) {
     return <Navigate to={routes.root} />;
@@ -103,7 +102,7 @@ export function SignInPage() {
                       _hover={{
                         bg: 'blue.500',
                       }}
-                      // isLoading={isSubmitting}
+                      isLoading={isLoading}
                     >
                       Регистрация
                     </Button>
@@ -126,7 +125,7 @@ export function SignInPage() {
                       _hover={{
                         bg: 'green.500',
                       }}
-                      isLoading={isSubmitting}
+                      isLoading={isLoading}
                     >
                       Войти
                     </Button>

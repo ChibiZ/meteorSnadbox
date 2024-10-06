@@ -14,6 +14,9 @@ import { data } from './data';
 import { CustomNode } from './CustomNode';
 import { CustomEdge } from './CustomEdge';
 import { prepareNodes } from './prepareData';
+import { InfoNodePage } from './components/InfoNodePage';
+import { ImportRoadmap } from './components/ImportRoadmap';
+import { createFlowDataFromText } from './tree/createTreeFromTxt';
 const getEdgeStyle = () => {
   return {
     style: {
@@ -56,21 +59,48 @@ function Flow() {
     },
     [setEdges],
   );
+
+  const [isNodeInfoOpen, setNodeInfoOpen] = React.useState(false);
+  const onNodeClick = useCallback((event, node) => {
+    setNodeInfoOpen(true);
+  }, []);
+
+  const onCreateRoadmap = (value) => {
+    const tree = createFlowDataFromText(value);
+
+    setNodes([...tree.nodes]);
+    setEdges([...tree.edges]);
+  };
+  const onLoad = (reactFlowInstance) => {
+    reactFlowInstance.fitView();
+  };
+
   return (
-    <ReactFlow
-      nodes={nodes}
-      edges={edges}
-      onNodesChange={onNodesChange}
-      onEdgesChange={onEdgesChange}
-      onConnect={onConnect}
-      nodeTypes={nodeTypes}
-      edgeTypes={edgeTypes}
-      fitView
-    >
-      <MiniMap />
-      <Controls />
-      <Background />
-    </ReactFlow>
+    <>
+      <ReactFlow
+        onLoad={onLoad}
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+        nodeTypes={nodeTypes}
+        edgeTypes={edgeTypes}
+        fitView={true}
+        onNodeClick={onNodeClick}
+      >
+        <MiniMap position="top-right" />
+        <Controls />
+        <Background />
+      </ReactFlow>
+
+      <InfoNodePage
+        isOpen={isNodeInfoOpen}
+        onClose={() => setNodeInfoOpen(false)}
+      />
+
+      <ImportRoadmap onCreate={onCreateRoadmap} />
+    </>
   );
 }
 

@@ -9,6 +9,9 @@ body {
   font-weight: 400;
   font-style: normal;
 }
+body[data-scroll-locked] {
+  padding:10px!important;
+}
 
 #react-target{
   height: 100vh;
@@ -53,9 +56,21 @@ main {
   height: 8px !important;
 }
 
-.react-flow__edge-path,
-.react-flow__connection-path {
-  stroke: rgb(43, 120, 228) !important;
-  stroke-width: 3.5 !important;
-  opacity: 0.5 !important;
+.react-flow__edge-path.react-flow__connection-path {
+  stroke: rgb(43, 120, 228);
+  stroke-width: 3.5 ;
+  opacity: 0.5 ;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 22px;
+}
+
+
+.logo img{
+  max-width: 100%;
+  margin: 0 3px;
 }

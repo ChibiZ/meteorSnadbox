@@ -1,7 +1,7 @@
 export const prepareNodes = (nodes) => {
   return nodes.map((node) => ({
     ...node,
-    type: "selectorNode",
+    type: 'selectorNode',
     data: {
       ...node.data,
       kind: node.type,

@@ -7,20 +7,24 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import React from 'react';
+import { Logo } from './Logo';
 
 export function Loading() {
   return (
-    <Box maxW="6xl" mx="auto">
-      <Flex align="center" justify="center">
+    <Box maxW="6xl" mx="auto" height="100%" width="100%">
+      <Flex align="center" justify="center" height="100%" width="100%">
         <Stack spacing={8} mx="auto" maxW="lg" py={12} px={6}>
           <Stack align="center">
+            <div style={{ width: 150 }}>
+              <Logo />
+            </div>
             <Text
-              fontSize="lg"
+              fontSize="30px"
               color={useColorModeValue('gray.600', 'gray.400')}
             >
-              Loading...
+              Загрузка...
             </Text>
-            <Spinner size="xl" />
+            <Spinner size="sm" width={50} height={50} thickness={4} />
           </Stack>
         </Stack>
       </Flex>

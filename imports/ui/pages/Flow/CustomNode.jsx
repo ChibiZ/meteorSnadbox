@@ -1,5 +1,5 @@
-import React, { memo } from "react";
-import { Handle, Position } from "@xyflow/react";
+import React, { memo } from 'react';
+import { Handle, Position } from '@xyflow/react';
 
 export const CustomNode = memo(({ data, isConnectable, ...props }) => {
   return (

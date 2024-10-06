@@ -11,13 +11,12 @@ export const App = () => {
   const [isLoading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    let tracker = Tracker.autorun(() => {
-      if (Accounts.loginServicesConfigured()) {
-        setLoading(false);
-      }
-    });
+    Tracker.autorun(async (c) => {
+      const user = await Accounts.userAsync();
+      let isConfigured = Accounts.loginServicesConfigured();
 
-    return () => tracker.stop();
+      if (user === null || isConfigured) setLoading(false);
+    });
   }, []);
 
   if (isLoading) return <Loading />;
