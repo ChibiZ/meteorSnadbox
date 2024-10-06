@@ -16,6 +16,29 @@ export function useRoadmapApi() {
         isClosable: true,
       });
     } catch (e) {
+      console.log(e);
+      toast({
+        title: 'Ошибка сохранения данных',
+        status: JSON.stringify(e),
+        duration: 4000,
+        isClosable: true,
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const create = async (data) => {
+    try {
+      setLoading(true);
+      await Meteor.callAsync('roadmap.insert', data);
+      toast({
+        title: 'Roadmap создан',
+        status: 'success',
+        duration: 4000,
+        isClosable: true,
+      });
+    } catch (e) {
       toast({
         title: 'Ошибка сохранения данных',
         status: JSON.stringify(e),
@@ -33,5 +56,6 @@ export function useRoadmapApi() {
     update,
     isLoading,
     updateTask,
+    create,
   };
 }

@@ -9,6 +9,7 @@ export const RoadMapPage = () => {
   const isLoading = useSubscribe('roadmaps');
   const roadmap = useTracker(() => RoadmapsCollection.find({}).fetch());
 
+  console.log(roadmap);
   if (isLoading()) {
     return <Loading />;
   }

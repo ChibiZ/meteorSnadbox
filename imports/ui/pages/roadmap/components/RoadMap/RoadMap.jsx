@@ -33,11 +33,15 @@ const edgeTypes = {
 export const RoadMap = React.memo(({ data }) => {
   const [rfInstance, setRfInstance] = React.useState(null);
 
-  const [nodes, setNodes, onNodesChange] = useNodesState([...data.nodes]);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([...data.edges]);
+  const [nodes, setNodes, onNodesChange] = useNodesState([
+    ...(data?.nodes ?? []),
+  ]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([
+    ...(data?.edges ?? []),
+  ]);
   const [hasChanges, setChanges] = React.useState(false);
   const [selectedNode, setSelectedNode] = React.useState(null);
-  const { update, isLoading } = useRoadmapApi();
+  const { update, isLoading, create } = useRoadmapApi();
 
   const onConnect = useCallback(
     (connection) => {
@@ -54,7 +58,6 @@ export const RoadMap = React.memo(({ data }) => {
   );
 
   const onNodeClick = useCallback((event, node) => {
-    console.log(node);
     setSelectedNode(node);
   }, []);
 
@@ -63,13 +66,19 @@ export const RoadMap = React.memo(({ data }) => {
 
     setNodes([...tree.nodes]);
     setEdges([...tree.edges]);
+    setChanges(true);
   };
 
   const onSaveChanges = async () => {
     if (nodes.length && edges.length) {
       const flow = rfInstance.toObject();
 
-      await update(data._id, flow);
+      if (data?._id) {
+        await update(data._id, flow);
+      } else {
+        await create(flow);
+      }
+
       setChanges(false);
     }
   };
