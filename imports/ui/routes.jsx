@@ -5,7 +5,7 @@ import { SignInPage } from './pages/auth/sign-in-page';
 import { NotFoundPage } from './pages/not-found/not-found-page';
 
 import { RequireAuth } from './components/RequireAuth';
-import Flow from './pages/Flow/Flow';
+import { RoadMapPage } from './pages/roadmap';
 
 export const routes = {
   root: '/',
@@ -21,7 +21,7 @@ export function Routes() {
           element={
             <RequireAuth>
               <Layout>
-                <Flow />
+                <RoadMapPage />
               </Layout>
             </RequireAuth>
           }

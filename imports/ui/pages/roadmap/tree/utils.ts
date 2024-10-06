@@ -59,6 +59,6 @@ export const getWidthNode = (text: string, font?: string) => {
   const ff = getComputedStyle(document.body).fontFamily;
   const fw = getComputedStyle(document.body).fontWeight;
 
-  context.font = font || `${fw} 19px ${ff}`;
+  context.font = font || `${fw} 20px ${ff}`;
   return context.measureText(text).width;
 };

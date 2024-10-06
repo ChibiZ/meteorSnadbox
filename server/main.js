@@ -2,6 +2,9 @@ import { Meteor } from 'meteor/meteor';
 import { LinksCollection } from '/imports/api/links';
 import { Accounts } from 'meteor/accounts-base';
 
+import '../imports/api/roadmap/RoadmapPublications';
+import '../imports/api/roadmap/RoadmapMethods';
+
 async function insertLink({ title, url }) {
   await LinksCollection.insertAsync({ title, url, createdAt: new Date() });
 }
@@ -11,7 +14,7 @@ const SEED_PASSWORD = 'test';
 
 Meteor.startup(async () => {
   // If the Links collection is empty, add some data.
-  if (await LinksCollection.find().countAsync() === 0) {
+  if ((await LinksCollection.find().countAsync()) === 0) {
     await insertLink({
       title: 'Do the Tutorial',
       url: 'https://www.meteor.com/tutorials/react/creating-an-app',
@@ -35,7 +38,7 @@ Meteor.startup(async () => {
 
   // We publish the entire Links collection to all clients.
   // In order to be fetched in real-time to the clients
-  Meteor.publish("links", function () {
+  Meteor.publish('links', function () {
     return LinksCollection.find();
   });
 

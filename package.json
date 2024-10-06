@@ -1,6 +1,7 @@
 {
   "name": "meteor-app",
   "private": true,
+  "version": "0.0.1",
   "scripts": {
     "start": "meteor run",
     "test": "meteor test --once --driver-package meteortesting:mocha",
@@ -20,6 +21,7 @@
     "meteor-node-stubs": "^1.2.5",
     "prettier": "^3.3.3",
     "react": "^18.2.0",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.26.2",
     "uuid": "^10.0.0"

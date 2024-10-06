@@ -2,10 +2,7 @@ import { ChakraProvider, ColorModeScript, extendTheme } from '@chakra-ui/react';
 import React from 'react';
 
 const customTheme = extendTheme({
-  fonts: {
-    heading: `"Balsamiq Sans", sans-serif`,
-    body: `"Balsamiq Sans", sans-serif`,
-  },
+  fonts: {},
   config: {
     initialColorMode: 'light',
     useSystemColorMode: false,
