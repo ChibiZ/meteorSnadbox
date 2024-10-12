@@ -21,6 +21,7 @@ import { useRoadmapApi } from '../../useRoadmapApi';
 import { SUB_TOPIC_EDGE_STYLES } from '../../tree/consts';
 import { useRoadMapContext } from '../../RoadMapContext';
 import { prepareRoadmapToSave, setStatusForNodes } from './utils';
+import { TrackProgress } from './TrackProgress';
 
 const DEFAULT_VIEWPORT = { x: window.innerWidth / 2, y: 50, zoom: 0.9 };
 
@@ -145,6 +146,7 @@ export const RoadMap = React.memo(() => {
           Сохранить изменения
         </Button>
       )}
+      <TrackProgress />
     </>
   );
 });
