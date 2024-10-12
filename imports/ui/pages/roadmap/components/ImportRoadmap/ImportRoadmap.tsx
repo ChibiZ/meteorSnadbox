@@ -1,6 +1,5 @@
 import React from 'react';
 
-import classes from './styles.module.scss';
 import { Button, Textarea, useDisclosure } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import {

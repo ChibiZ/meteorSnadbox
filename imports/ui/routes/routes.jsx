@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes as ReactRoutes, Route } from 'react-router-dom';
-import { Layout } from './components/layout';
-import { SignInPage } from './pages/auth/sign-in-page';
-import { NotFoundPage } from './pages/not-found/not-found-page';
 
-import { RequireAuth } from './components/RequireAuth';
-import { RoadMapPage } from './pages/roadmap';
+import { Layout } from '../components/Layout/layout';
+import { SignInPage } from '../pages/auth/sign-in-page';
+import { NotFoundPage } from '../pages/not-found/not-found-page';
+import { RequireAuth } from '../components/RequireAuth';
+import { RoadMapPage } from '../pages/roadmap';
 
 export const routes = {
   root: '/',

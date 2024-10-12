@@ -2,6 +2,12 @@ import { Meteor } from 'meteor/meteor';
 import { RoadmapsCollection } from './RoadmapCollection';
 
 Meteor.methods({
+  'roadmap.get'() {
+    return RoadmapsCollection.find({}).fetchAsync();
+  },
+});
+
+Meteor.methods({
   'roadmap.insert'(tree) {
     return RoadmapsCollection.insertAsync(tree);
   },

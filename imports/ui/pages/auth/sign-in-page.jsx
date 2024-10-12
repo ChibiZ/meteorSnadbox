@@ -12,9 +12,9 @@ import {
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { routes } from '../../routes';
+import { routes } from '/imports/ui/routes/routes';
 import { useTracker } from 'meteor/react-meteor-data';
-import { authHook } from './authHook';
+import { useAuth } from './useAuth';
 
 export function SignInPage() {
   const user = useTracker(() => Meteor.user());
@@ -25,7 +25,7 @@ export function SignInPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const { loginUser, registerUser, isLoading } = authHook();
+  const { loginUser, registerUser, isLoading } = useAuth();
 
   const handleSubmit = (event) => {
     event.preventDefault();

@@ -23,6 +23,7 @@ body[data-scroll-locked] {
 main {
   width: 100%;
   flex:1;
+  background: rgb(249, 250, 251);
 }
 
 .node {
@@ -53,6 +54,20 @@ main {
   }
 }
 
+.node.Done {
+  text-decoration: line-through;
+  background: #cbcbcb!important;
+}
+
+.node.InProgress {
+  text-decoration: underline;
+  background: #dad1fd!important;
+}
+
+.node.Skip {
+  text-decoration: line-through;
+  background: #496b69!important;
+}
 .react-flow__handle {
   background-color: rgb(43, 120, 228) !important;
   width: 8px !important;

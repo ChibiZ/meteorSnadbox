@@ -14,59 +14,87 @@ import {
   MenuItem,
   Heading,
   Text,
+  Spinner,
 } from '@chakra-ui/react';
 import { ArrowDownIcon } from '@chakra-ui/icons';
-import { StatusIndicator, TaskStatus } from './StatusIndicator';
+import { StatusIndicator } from './StatusIndicator';
 import './styles.css';
-import { useRoadmapApi } from '../../useRoadmapApi';
+import { useUserProgressApi } from '../../useUserProgressApi';
+import { useRoadMapContext } from '../../RoadMapContext';
+import { TaskStatus } from '/imports/ui/shared';
 
-export const InfoNodePage = ({ isOpen, onClose, node }) => {
-  const { updateTask } = useRoadmapApi();
+const TASK_STATUSES = [
+  {
+    title: 'Done',
+    value: TaskStatus.Done,
+  },
+  {
+    title: 'In Progress',
+    value: TaskStatus.InProgress,
+  },
+  {
+    title: 'Skip',
+    value: TaskStatus.Skip,
+  },
 
-  const onSelectStatus = (status) => {
-    updateTask();
+  {
+    title: 'Reset',
+    value: TaskStatus.Reset,
+  },
+];
+
+export const InfoNodePage = React.memo(({ isOpen, onClose, node }) => {
+  const { updateTask, isLoading: isUpdatingStatusTask } = useUserProgressApi();
+  const { userProgress, getUserProgress, roadmap } = useRoadMapContext();
+
+  const currentStatus = userProgress?.[node.id]?.status;
+
+  const onSelectStatus = async (status) => {
+    await updateTask({
+      status,
+      roadmapId: roadmap._id,
+      id: node.id,
+    });
+    getUserProgress();
   };
 
   return (
     <Drawer
       isOpen={isOpen}
-      placement={'right'}
+      placement="right"
       onClose={onClose}
       isFullHeight={true}
-      size={'lg'}
+      size="lg"
     >
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
 
-        <DrawerBody>
+        <DrawerBody style={{ padding: '1.5rem' }}>
           <ButtonGroup size="sm" isAttached variant="outline">
             <Button>
-              <StatusIndicator status={''} /> Статус
+              <StatusIndicator status={currentStatus} /> Статус
             </Button>
 
             <Menu>
               <MenuButton as={Button} rightIcon={<ArrowDownIcon />}>
-                Обновить статус
+                {isUpdatingStatusTask ? (
+                  <Spinner size={'sm'} />
+                ) : (
+                  'Обновить статус'
+                )}
               </MenuButton>
-              <MenuList>
-                <MenuItem onClick={() => onSelectStatus(TaskStatus.Done)}>
-                  <StatusIndicator status={TaskStatus.Done} /> Done
-                </MenuItem>
-                <MenuItem>
-                  <StatusIndicator
-                    status={TaskStatus.InProgress}
-                    onClick={() => onSelectStatus(TaskStatus.InProgress)}
-                  />{' '}
-                  In progress
-                </MenuItem>
-                <MenuItem>
-                  <StatusIndicator
-                    status={TaskStatus.Skip}
-                    onClick={() => onSelectStatus(TaskStatus.Skip)}
-                  />{' '}
-                  Skip
-                </MenuItem>
+              <MenuList p={0} minW="0" w={'150px'}>
+                {TASK_STATUSES.map(({ title, value }) => (
+                  <MenuItem
+                    key={value}
+                    onClick={() => onSelectStatus(value)}
+                    icon={<StatusIndicator status={value} />}
+                    disabled={isUpdatingStatusTask}
+                  >
+                    {title}
+                  </MenuItem>
+                ))}
               </MenuList>
             </Menu>
           </ButtonGroup>
@@ -92,4 +120,4 @@ export const InfoNodePage = ({ isOpen, onClose, node }) => {
       </DrawerContent>
     </Drawer>
   );
-};
+});

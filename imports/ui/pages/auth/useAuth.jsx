@@ -3,11 +3,12 @@ import { useToast } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
 
-export const authHook = () => {
+export const useAuth = () => {
   const toast = useToast();
   const [isLoading, setLoading] = React.useState(false);
 
   const navigate = useNavigate();
+
   const registerUser = async ({ username, password }) => {
     setLoading(true);
     Accounts.createUser(
@@ -61,5 +62,11 @@ export const authHook = () => {
     });
   };
 
-  return { loginUser, registerUser, isLoading };
+  const logout = () => {
+    Meteor.logout(() => {
+      navigate('/login');
+    });
+  };
+
+  return { loginUser, registerUser, isLoading, logout };
 };

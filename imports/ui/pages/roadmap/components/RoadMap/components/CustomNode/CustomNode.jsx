@@ -3,7 +3,7 @@ import { Handle, Position } from '@xyflow/react';
 
 export const CustomNode = memo(({ data, isConnectable, ...props }) => {
   return (
-    <div className={`node ${data.kind}`}>
+    <div className={`node ${data.kind} ${data.status ?? ''}`}>
       <div>{data.label}</div>
 
       <Handle

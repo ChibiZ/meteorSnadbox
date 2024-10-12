@@ -3,7 +3,6 @@ import { Button } from '@chakra-ui/react';
 import { CheckIcon } from '@chakra-ui/icons';
 import {
   ReactFlow,
-  MiniMap,
   Controls,
   Background,
   useNodesState,
@@ -16,11 +15,14 @@ import { CustomNode } from './components/CustomNode';
 import { CustomEdge } from './components/CustomEdge';
 import { InfoNodePage } from '../InfoNodePage';
 import { ImportRoadmap } from '../ImportRoadmap';
-import { createFlowDataFromText } from '../../tree/createTreeFromTxt';
-import { BrowserView } from 'react-device-detect';
+import { createFlowDataFromText } from '/imports/ui/pages/roadmap/tree/createTreeFromTxt';
 
 import { useRoadmapApi } from '../../useRoadmapApi';
 import { SUB_TOPIC_EDGE_STYLES } from '../../tree/consts';
+import { useRoadMapContext } from '../../RoadMapContext';
+import { prepareRoadmapToSave, setStatusForNodes } from './utils';
+
+const DEFAULT_VIEWPORT = { x: window.innerWidth / 2, y: 50, zoom: 0.9 };
 
 const nodeTypes = {
   selectorNode: CustomNode,
@@ -29,19 +31,24 @@ const nodeTypes = {
 const edgeTypes = {
   customEdge: CustomEdge,
 };
+export const RoadMap = React.memo(() => {
+  const { roadmap, userProgress } = useRoadMapContext();
+  const { update, isLoading, create } = useRoadmapApi();
 
-export const RoadMap = React.memo(({ data }) => {
   const [rfInstance, setRfInstance] = React.useState(null);
 
-  const [nodes, setNodes, onNodesChange] = useNodesState([
-    ...(data?.nodes ?? []),
-  ]);
+  const [nodes, setNodes, onNodesChange] = useNodesState(
+    setStatusForNodes(roadmap.nodes, userProgress),
+  );
   const [edges, setEdges, onEdgesChange] = useEdgesState([
-    ...(data?.edges ?? []),
+    ...(roadmap?.edges ?? []),
   ]);
-  const [hasChanges, setChanges] = React.useState(false);
   const [selectedNode, setSelectedNode] = React.useState(null);
-  const { update, isLoading, create } = useRoadmapApi();
+  const [hasChanges, setChanges] = React.useState(false);
+
+  const NODES = React.useMemo(() => {
+    return setStatusForNodes(nodes, userProgress);
+  }, [nodes, userProgress]);
 
   const onConnect = useCallback(
     (connection) => {
@@ -70,57 +77,62 @@ export const RoadMap = React.memo(({ data }) => {
   };
 
   const onSaveChanges = async () => {
-    if (nodes.length && edges.length) {
-      const flow = rfInstance.toObject();
+    if (!nodes.length) return;
 
-      if (data?._id) {
-        await update(data._id, flow);
-      } else {
-        await create(flow);
-      }
+    const flow = rfInstance.toObject();
+    const prepared = prepareRoadmapToSave(flow);
 
-      setChanges(false);
+    const isNewRoadMap = Boolean(roadmap?._id == null);
+
+    if (isNewRoadMap) {
+      await create(prepared);
+      return;
     }
+
+    await update(roadmap._id, prepared);
+
+    setChanges(false);
   };
 
   const onNodesChangeHandler = React.useCallback(
     (changes) => {
       onNodesChange(changes);
 
-      if (changes.some(({ type }) => type === 'position')) {
+      const hasChangedAnyNode = changes.some(({ type }) => type === 'position');
+
+      if (hasChangedAnyNode) {
         setChanges(true);
       }
     },
     [onNodesChange],
   );
 
+  const onCloseNodePage = React.useCallback(() => setSelectedNode(null), []);
+
   return (
     <>
       <ReactFlow
         onInit={setRfInstance}
-        nodes={nodes}
+        nodes={NODES}
         edges={edges}
         onNodesChange={onNodesChangeHandler}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         nodeTypes={nodeTypes}
         edgeTypes={edgeTypes}
-        fitView={true}
         onNodeClick={onNodeClick}
+        defaultViewport={DEFAULT_VIEWPORT}
       >
-        <BrowserView>
-          <MiniMap position="top-right" />
-        </BrowserView>
-
         <Controls />
-        <Background />
       </ReactFlow>
 
-      <InfoNodePage
-        isOpen={selectedNode !== null}
-        onClose={() => setSelectedNode(null)}
-        node={selectedNode}
-      />
+      {selectedNode !== null && (
+        <InfoNodePage
+          isOpen={true}
+          onClose={onCloseNodePage}
+          node={selectedNode}
+        />
+      )}
 
       <ImportRoadmap onCreate={onCreateRoadmap} />
       {hasChanges && (

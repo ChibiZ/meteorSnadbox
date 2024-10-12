@@ -1,25 +1,15 @@
-import React, { Suspense } from 'react';
-
-import { UIProvider } from './components/ui-provider';
+import React from 'react';
+import { UIProvider } from './components/UIProvider';
 import { Loading } from './components/loading';
-import { Routes } from './routes';
-import { Tracker } from 'meteor/tracker';
+import { Routes } from './routes/routes';
 
 import './styles/styles.css';
+import { useAppReady } from './hooks/useAppReady';
 
 export const App = () => {
-  const [isLoading, setLoading] = React.useState(true);
+  const isReady = useAppReady();
 
-  React.useEffect(() => {
-    Tracker.autorun(async (c) => {
-      const user = await Accounts.userAsync();
-      let isConfigured = Accounts.loginServicesConfigured();
-
-      if (user === null || isConfigured) setLoading(false);
-    });
-  }, []);
-
-  if (isLoading) return <Loading />;
+  if (!isReady) return <Loading />;
 
   return (
     <UIProvider>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useToast } from '@chakra-ui/react';
+import { roadMapApi } from '../../api';
 
 export function useRoadmapApi() {
   const [isLoading, setLoading] = React.useState(false);
@@ -8,7 +9,7 @@ export function useRoadmapApi() {
   const update = async (id, data) => {
     try {
       setLoading(true);
-      await Meteor.callAsync('roadmap.update', { _id: id, data });
+      await roadMapApi.update({ id, data });
       toast({
         title: 'Данные сохранены.',
         status: 'success',
@@ -19,7 +20,8 @@ export function useRoadmapApi() {
       console.log(e);
       toast({
         title: 'Ошибка сохранения данных',
-        status: JSON.stringify(e),
+        status: 'error',
+        description: e.message,
         duration: 4000,
         isClosable: true,
       });
@@ -31,7 +33,7 @@ export function useRoadmapApi() {
   const create = async (data) => {
     try {
       setLoading(true);
-      await Meteor.callAsync('roadmap.insert', data);
+      await roadMapApi.create({ data });
       toast({
         title: 'Roadmap создан',
         status: 'success',
@@ -41,7 +43,8 @@ export function useRoadmapApi() {
     } catch (e) {
       toast({
         title: 'Ошибка сохранения данных',
-        status: JSON.stringify(e),
+        status: 'error',
+        description: e.message,
         duration: 4000,
         isClosable: true,
       });
@@ -50,12 +53,9 @@ export function useRoadmapApi() {
     }
   };
 
-  const updateTask = (id, status) => {};
-
   return {
     update,
     isLoading,
-    updateTask,
     create,
   };
 }

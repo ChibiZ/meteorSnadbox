@@ -2,18 +2,12 @@ import { Button } from '@chakra-ui/react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../pages/auth/useAuth';
 
 export function Logout() {
   const user = useTracker(() => Meteor.user());
+  const { logout } = useAuth();
 
-  const navigate = useNavigate();
-
-  const logout = () => {
-    Meteor.logout(() => {
-      navigate('/login');
-    });
-  };
   return (
     <>
       {user && (

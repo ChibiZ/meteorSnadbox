@@ -1,5 +1,5 @@
 import { v7 } from 'uuid';
-import { NodeKind } from '../types';
+import { NodeKind } from './types';
 
 export type TreeNodeChild = { id: string; title: string; kind: NodeKind };
 

@@ -2,11 +2,11 @@ import { Box } from '@chakra-ui/react';
 import React from 'react';
 import { Navbar } from './navbar';
 
-export function Layout({ loggedOnly = true, children }) {
+export function Layout({ children }) {
   return (
     <>
       <Navbar />
-      <Box as={'main'}>{children}</Box>
+      <Box as="main">{children}</Box>
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { Edge, FlowDataScheme, Node } from '../types';
+import { Edge, FlowDataScheme, Node } from './types';
 import {
   getWidthNode,
   NodesTree,

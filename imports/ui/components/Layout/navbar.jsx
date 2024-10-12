@@ -1,6 +1,5 @@
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {
-  Box,
   Button,
   Flex,
   Stack,
@@ -9,10 +8,13 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import React from 'react';
-import { Logout } from './logout';
-import { Logo } from './Logo';
+import { useTracker } from 'meteor/react-meteor-data';
+import { Avatar } from '@chakra-ui/react';
+
+import { Logout } from '../logout';
+import { Logo } from '../Logo';
 export function Navbar() {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const user = useTracker(() => Meteor.user());
 
   return (
     <header>
@@ -20,9 +22,8 @@ export function Navbar() {
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
         minH="60px"
-        py={{ base: 2 }}
-        px={{ base: 4 }}
         borderBottom={1}
+        px={2}
         borderStyle="solid"
         borderColor={useColorModeValue('gray.200', 'gray.900')}
         align="center"
@@ -41,20 +42,22 @@ export function Navbar() {
             Матрица компетенций
           </Text>
         </Flex>
+        <Stack justify="flex-end" alignItems={'center'} direction="row">
+          {user && (
+            <span>
+              {user.username}{' '}
+              <Avatar name={user.username} size={'xs'} bg="green.500" />
+            </span>
+          )}
 
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify="flex-end"
-          direction="row"
-          spacing={6}
-        >
-          <Button
-            onClick={toggleColorMode}
-            aria-label={colorMode === 'light' ? 'Moon Icon' : 'Sun Icon'}
-          >
-            {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-          </Button>
           <Logout />
+          {/*<Button*/}
+          {/*  size={'sm'}*/}
+          {/*  onClick={toggleColorMode}*/}
+          {/*  aria-label={colorMode === 'light' ? 'Moon Icon' : 'Sun Icon'}*/}
+          {/*>*/}
+          {/*  {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}*/}
+          {/*</Button>*/}
         </Stack>
       </Flex>
     </header>
