@@ -1,0 +1,14 @@
+{
+  "packages": {
+    "mongo": {
+      "options": {
+        "tlsAllowInvalidCertificates": true
+      }
+    }
+  },
+  "galaxy.meteor.com": {
+    "env": {
+      "MONGO_URL": "mongodb+srv://meteorAdmin:matrix2024@matrix2024.ybc45.mongodb.net/?retryWrites=true&w=majority&appName=matrix2024"
+    }
+  }
+}
