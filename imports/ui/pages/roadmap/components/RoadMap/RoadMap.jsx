@@ -86,10 +86,9 @@ export const RoadMap = React.memo(() => {
 
     if (isNewRoadMap) {
       await create(prepared);
-      return;
+    } else {
+      await update(roadmap._id, prepared);
     }
-
-    await update(roadmap._id, prepared);
 
     setChanges(false);
   };
