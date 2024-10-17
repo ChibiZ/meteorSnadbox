@@ -3,10 +3,13 @@
   margin: 0;
   padding: 0;
 }
-
 :root {
-  --topic-color: hsl(60.47deg 100% 50%);
+  --topic-color: hsl(60.47deg,100%,50%);
+  --subtopic-color: hsl(44.71deg, 100%, 80%);
 
+  --done-color:hsl(0deg, 0%, 80%);
+  --in-progress-color: hsl(252deg, 92%,91%);
+  --edge-color:hsl(215deg, 77%, 53%);
 }
 body {
   font-family: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";
@@ -14,9 +17,11 @@ body {
   font-weight: 400;
   font-style: normal;
 }
+
 body[data-scroll-locked] {
   padding:10px!important;
 }
+
 
 #react-target{
   height: 100vh;
@@ -39,40 +44,35 @@ main {
   border: 2px solid #000;
   transition: background-color 0.3s ease;
   font-family: "Balsamiq Sans", sans-serif;
-
 }
-
 .node.topic {
   background-color: var(--topic-color);
 }
 
+.node.subtopic {
+  background-color: var(--subtopic-color);
+  &:hover {
+   filter: brightness(.8);
+  }
+}
+
 .node.Done {
   text-decoration: line-through;
-  background: #cbcbcb!important;
+  background: var(--done-color);
 }
-
 .node.InProgress {
   text-decoration: underline;
-  background: #dad1fd!important;
-}
-
-
-.node.subtopic {
-  background-color: hsl(44.71deg 100% 80%);
-
-  &:hover {
-     filter: brightness(.8);
- }
+  background: var(--in-progress-color);
 }
 
 .react-flow__handle {
-  background-color: rgb(43, 120, 228) !important;
+  background-color: var(--edge-color);
   width: 8px !important;
   height: 8px !important;
 }
 
 .react-flow__edge-path.react-flow__connection-path {
-  stroke: rgb(43, 120, 228);
+  stroke: var(--edge-color);
   stroke-width: 3.5 ;
   opacity: 0.5 ;
 }
@@ -83,8 +83,6 @@ main {
   margin-right: 10px;
   font-size: 22px;
 }
-
-
 .logo img{
   max-width: 100%;
   margin: 0 3px;
