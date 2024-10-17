@@ -6,7 +6,9 @@ export function Layout({ children }) {
   return (
     <>
       <Navbar />
-      <Box as="main">{children}</Box>
+      <Box as="main" padding={3}>
+        {children}
+      </Box>
     </>
   );
 }

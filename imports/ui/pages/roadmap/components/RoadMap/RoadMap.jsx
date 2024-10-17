@@ -4,15 +4,12 @@ import { CheckIcon } from '@chakra-ui/icons';
 import {
   ReactFlow,
   Controls,
-  Background,
   useNodesState,
   useEdgesState,
   addEdge,
 } from '@xyflow/react';
 import React from 'react';
 import '@xyflow/react/dist/style.css';
-import { CustomNode } from './components/CustomNode';
-import { CustomEdge } from './components/CustomEdge';
 import { InfoNodePage } from '../InfoNodePage';
 import { ImportRoadmap } from '../ImportRoadmap';
 import { createFlowDataFromText } from '/imports/ui/pages/roadmap/tree/createTreeFromTxt';
@@ -20,19 +17,13 @@ import { createFlowDataFromText } from '/imports/ui/pages/roadmap/tree/createTre
 import { useRoadmapApi } from '../../useRoadmapApi';
 import { SUB_TOPIC_EDGE_STYLES } from '../../tree/consts';
 import { useRoadMapContext } from '../../RoadMapContext';
-import { prepareRoadmapToSave, setStatusForNodes } from './utils';
-import { TrackProgress } from './TrackProgress';
+import { isNodeTopic, prepareRoadmapToSave, setStatusForNodes } from './utils';
+import { TrackProgress } from './components/TrackProgress';
+import { DEFAULT_VIEWPORT, edgeTypes, nodeTypes } from './consts';
+import { Link } from 'react-router-dom';
+import { routes } from '../../../../routes/routes';
 
-const DEFAULT_VIEWPORT = { x: window.innerWidth / 2, y: 50, zoom: 0.9 };
-
-const nodeTypes = {
-  selectorNode: CustomNode,
-};
-
-const edgeTypes = {
-  customEdge: CustomEdge,
-};
-export const RoadMap = React.memo(() => {
+export const RoadMap = React.memo(({ isReadOnly }) => {
   const { roadmap, userProgress } = useRoadMapContext();
   const { update, isLoading, create } = useRoadmapApi();
 
@@ -66,15 +57,18 @@ export const RoadMap = React.memo(() => {
   );
 
   const onNodeClick = useCallback((event, node) => {
+    if (isNodeTopic(node)) return;
+
     setSelectedNode(node);
   }, []);
 
-  const onCreateRoadmap = (value) => {
+  const onCreateRoadmap = async (value) => {
+    if (!nodes.length) return;
     const tree = createFlowDataFromText(value);
+    await create(tree);
 
     setNodes([...tree.nodes]);
     setEdges([...tree.edges]);
-    setChanges(true);
   };
 
   const onSaveChanges = async () => {
@@ -83,13 +77,7 @@ export const RoadMap = React.memo(() => {
     const flow = rfInstance.toObject();
     const prepared = prepareRoadmapToSave(flow);
 
-    const isNewRoadMap = Boolean(roadmap?._id == null);
-
-    if (isNewRoadMap) {
-      await create(prepared);
-    } else {
-      await update(roadmap._id, prepared);
-    }
+    await update(roadmap._id, prepared);
 
     setChanges(false);
   };
@@ -109,6 +97,7 @@ export const RoadMap = React.memo(() => {
 
   const onCloseNodePage = React.useCallback(() => setSelectedNode(null), []);
 
+  const isEditable = !isReadOnly;
   return (
     <>
       <ReactFlow
@@ -122,8 +111,13 @@ export const RoadMap = React.memo(() => {
         edgeTypes={edgeTypes}
         onNodeClick={onNodeClick}
         defaultViewport={DEFAULT_VIEWPORT}
+        edgesFocusable={isEditable}
+        nodesDraggable={isEditable}
+        nodesConnectable={isEditable}
+        nodesFocusable={isEditable}
+        elementsSelectable={isEditable}
       >
-        <Controls />
+        <Controls showInteractive={isEditable} />
       </ReactFlow>
 
       {selectedNode !== null && (
@@ -134,8 +128,9 @@ export const RoadMap = React.memo(() => {
         />
       )}
 
-      <ImportRoadmap onCreate={onCreateRoadmap} />
-      {hasChanges && (
+      {isEditable && <ImportRoadmap onCreate={onCreateRoadmap} />}
+
+      {isEditable && hasChanges && (
         <Button
           style={{ position: 'absolute', top: 124 }}
           leftIcon={<CheckIcon />}
@@ -146,6 +141,18 @@ export const RoadMap = React.memo(() => {
           Сохранить изменения
         </Button>
       )}
+
+      {isEditable && (
+        <Button
+          style={{ position: 'absolute', top: 80, left: 200 }}
+          size="sm"
+          as={Link}
+          to={routes.statistics}
+        >
+          Админка
+        </Button>
+      )}
+
       <TrackProgress />
     </>
   );

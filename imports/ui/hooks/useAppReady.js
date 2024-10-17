@@ -5,6 +5,7 @@ export function useAppReady() {
   const [isReady, setReady] = React.useState(false);
 
   React.useEffect(() => {
+    Meteor.callAsync('userD');
     Tracker.autorun(async () => {
       const user = await Accounts.userAsync();
       let isConfigured = Accounts.loginServicesConfigured();

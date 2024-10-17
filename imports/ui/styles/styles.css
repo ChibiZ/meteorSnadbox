@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+:root {
+  --topic-color: hsl(60.47deg 100% 50%);
+
+}
 body {
   font-family: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";
   -webkit-text-size-adjust: 100%;
@@ -39,19 +43,7 @@ main {
 }
 
 .node.topic {
-  background-color: hsl(60.47deg 100% 50%);
-
-  &:hover {
-    background-color: hsl(60.47deg 100% 40%);
-  }
-}
-
-
-.node.subtopic {
-  background-color: hsl(44.71deg 100% 80%);
-  &:hover {
-    background-color: hsl(44.71deg 100% 60%);
-  }
+  background-color: var(--topic-color);
 }
 
 .node.Done {
@@ -64,10 +56,15 @@ main {
   background: #dad1fd!important;
 }
 
-.node.Skip {
-  text-decoration: line-through;
-  background: #496b69!important;
+
+.node.subtopic {
+  background-color: hsl(44.71deg 100% 80%);
+
+  &:hover {
+     filter: brightness(.8);
+ }
 }
+
 .react-flow__handle {
   background-color: rgb(43, 120, 228) !important;
   width: 8px !important;

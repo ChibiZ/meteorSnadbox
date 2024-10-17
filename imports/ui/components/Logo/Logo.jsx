@@ -4,7 +4,7 @@ export const Logo = () => {
   return (
     <div className="logo">
       <span>[</span>
-      <img src="logo.png" alt="" />
+      <img src="/logo.png" alt="" />
       <span>]</span>
     </div>
   );

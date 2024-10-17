@@ -1,0 +1,25 @@
+.trackProgress {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  background: #fff;
+  display: flex;
+  align-items:center;
+}
+
+@media screen and (max-width: 900px) {
+  .trackProgress {
+    bottom: 10px;
+    flex-wrap: wrap;
+    width: 95%;
+    gap: 5px;
+    justify-content: center;
+  }
+  .trackProgress .chakra-badge {
+    font-size: 10px;
+  }
+}

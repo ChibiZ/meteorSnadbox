@@ -13,6 +13,7 @@ import { Avatar } from '@chakra-ui/react';
 
 import { Logout } from '../logout';
 import { Logo } from '../Logo';
+import { Link } from 'react-router-dom';
 export function Navbar() {
   const user = useTracker(() => Meteor.user());
 
@@ -28,9 +29,9 @@ export function Navbar() {
         borderColor={useColorModeValue('gray.200', 'gray.900')}
         align="center"
       >
-        <a href="/" style={{ width: 70, marginRight: 20 }}>
+        <Link to="/" style={{ width: 70, marginRight: 20 }}>
           <Logo />
-        </a>
+        </Link>
         <Flex flex={{ base: 1 }} justify="start">
           <Text
             as="span"

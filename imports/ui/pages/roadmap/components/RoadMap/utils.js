@@ -1,3 +1,5 @@
+import { filterTasksByStatus, TaskStatus } from '../../../../shared';
+
 export const prepareRoadmapToSave = (data) => {
   return {
     ...data,
@@ -31,4 +33,27 @@ export const setStatusForNodes = (nodes, userProgress) => {
 
     return copiedNode;
   });
+};
+
+export const isNodeTopic = (node) => node.data.kind === 'topic';
+
+export const getTasks = (nodes) => nodes.filter((node) => !isNodeTopic(node));
+
+export const getStat = (nodes, userProgress) => {
+  const total = getTasks(nodes ?? []).length;
+
+  const doneTaskCount = filterTasksByStatus(userProgress, TaskStatus.Done);
+
+  const inProgressTaskCount = filterTasksByStatus(
+    userProgress,
+    TaskStatus.InProgress,
+  );
+
+  const percent = Math.floor((doneTaskCount / total) * 100);
+  return {
+    total,
+    doneTaskCount,
+    inProgressTaskCount,
+    percent,
+  };
 };

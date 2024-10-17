@@ -8,6 +8,12 @@ Meteor.methods({
 });
 
 Meteor.methods({
+  'roadmap.getById'({ id }) {
+    return RoadmapsCollection.findOneAsync(id);
+  },
+});
+
+Meteor.methods({
   'roadmap.insert'(tree) {
     return RoadmapsCollection.insertAsync(tree);
   },

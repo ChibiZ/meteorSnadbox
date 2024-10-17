@@ -11,9 +11,8 @@ import {
   ModalBody,
   ModalCloseButton,
 } from '@chakra-ui/react';
-interface Props {}
 
-export const ImportRoadmap = ({ onCreate }: React.PropsWithChildren<Props>) => {
+export const ImportRoadmap = React.memo(({ onCreate }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [value, setValue] = React.useState(VALUE);
 
@@ -61,7 +60,7 @@ export const ImportRoadmap = ({ onCreate }: React.PropsWithChildren<Props>) => {
       </Modal>
     </div>
   );
-};
+});
 
 const PLACEHOLDER_TEXT =
   '## Parent Topic\n' +

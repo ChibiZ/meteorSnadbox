@@ -4,6 +4,7 @@
     border-radius: 50%;
     background: #ccc;
     margin-right: 5px;
+    display: inline-block;
 }
 
 .Done {
@@ -11,8 +12,4 @@
 }
 .InProgress{
     background:rgb(234 179 8);
-}
-
-.Skip {
-    background: #000;
 }

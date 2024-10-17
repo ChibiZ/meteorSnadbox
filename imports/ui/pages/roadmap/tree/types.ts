@@ -2,7 +2,7 @@ export type NodeKind = 'topic' | 'subtopic';
 
 export type Node = {
   id: string;
-  type: 'selectorNode';
+  type: 'customNode';
   width: number;
 
   data: {

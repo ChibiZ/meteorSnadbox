@@ -8,14 +8,22 @@ Meteor.methods({
 });
 
 Meteor.methods({
-  'userProgress.get'(data) {
-    if (!data.roadmapId) return null;
+  'userProgress.get'({ roadmapId }) {
+    if (!roadmapId) return null;
 
-    const { roadmapId } = data;
     const _id = Meteor.userId();
 
-    console.log('userProgress.get', 'user = ', _id);
     return UserProgressCollection.findOneAsync(_id, { roadmapId }).then(
+      (response) => response?.roadmapId?.[roadmapId] ?? null,
+    );
+  },
+});
+
+Meteor.methods({
+  'userProgress.getByUserId'({ roadmapId, id }) {
+    if (!roadmapId || !id) return null;
+
+    return UserProgressCollection.findOneAsync(id, { roadmapId }).then(
       (response) => response?.roadmapId?.[roadmapId] ?? null,
     );
   },
@@ -48,5 +56,32 @@ Meteor.methods({
       },
       { upsert: true },
     );
+  },
+});
+
+Meteor.methods({
+  'userProgress.all': async (data) => {
+    if (!data.roadmapId) return null;
+
+    const { roadmapId } = data;
+
+    const [users, usersTasks] = await Promise.all([
+      Accounts.users.find({}, { sort: { createdAt: -1 } }).fetchAsync(),
+      UserProgressCollection.find({
+        [`roadmapId.${roadmapId}`]: { $exists: true },
+      }).fetchAsync(),
+    ]);
+
+    const aggregatedData = users.map((user) => ({
+      id: user._id,
+      username: user.username,
+      createdAt: user.createdAt,
+      role: user.role,
+      progress: usersTasks.find((task) => task._id === user._id)?.roadmapId[
+        roadmapId
+      ],
+    }));
+
+    return aggregatedData;
   },
 });

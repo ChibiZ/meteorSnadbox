@@ -10,6 +10,9 @@ export class RoadMapApi {
   async getList() {
     return Meteor.callAsync('roadmap.get');
   }
+  async getById(id) {
+    return Meteor.callAsync('roadmap.getById', { id });
+  }
 }
 
 export class UserProgress {
@@ -27,12 +30,41 @@ export class UserProgress {
     });
   }
 
-  async getUserProgressByRoadMap({ roadmapId }) {
+  async getUserProgressById({ roadmapId, id }) {
+    return Meteor.callAsync('userProgress.getByUserId', {
+      roadmapId,
+      id,
+    });
+  }
+
+  async getCurrentUserProgressByRoadMap({ roadmapId }) {
     return Meteor.callAsync('userProgress.get', {
       roadmapId,
+    });
+  }
+  async getAllUsersProgressByRoadMap({ roadmapId }) {
+    return Meteor.callAsync('userProgress.all', {
+      roadmapId,
+    });
+  }
+}
+
+export class UsersApi {
+  async update({ id, data }) {
+    await Meteor.callAsync('accounts.update', {
+      id,
+      data,
+    });
+  }
+
+  async remove(id) {
+    await Meteor.callAsync('accounts.remove', {
+      id,
     });
   }
 }
 
 export const roadMapApi = new RoadMapApi();
 export const userProgressApi = new UserProgress();
+
+export const usersApi = new UsersApi();

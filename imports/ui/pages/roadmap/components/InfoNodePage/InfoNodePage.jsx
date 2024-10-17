@@ -32,10 +32,6 @@ const TASK_STATUSES = [
     title: 'In Progress',
     value: TaskStatus.InProgress,
   },
-  {
-    title: 'Skip',
-    value: TaskStatus.Skip,
-  },
 
   {
     title: 'Reset',
@@ -50,6 +46,13 @@ export const InfoNodePage = React.memo(({ isOpen, onClose, node }) => {
   const currentStatus = userProgress?.[node.id]?.status;
 
   const onSelectStatus = async (status) => {
+    console.log(
+      'upd',
+      { roadmap },
+      { status },
+      { id: node.id },
+      { find: roadmap.nodes.find(({ id }) => id === node.id) },
+    );
     await updateTask({
       status,
       roadmapId: roadmap._id,

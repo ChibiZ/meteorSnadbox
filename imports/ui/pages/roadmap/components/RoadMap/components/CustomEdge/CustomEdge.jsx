@@ -1,31 +1,31 @@
 import React from 'react';
-import { BaseEdge, getBezierPath, useReactFlow } from '@xyflow/react';
+import { BaseEdge, getBezierPath } from '@xyflow/react';
 
-export function CustomEdge({
-  id,
-  sourceX,
-  sourceY,
-  targetX,
-  targetY,
-  sourcePosition,
-  targetPosition,
-  style = {},
-  markerEnd,
-  ...props
-}) {
-  const { setEdges } = useReactFlow();
-  const [edgePath, labelX, labelY] = getBezierPath({
+export const CustomEdge = React.memo(
+  ({
+    id,
     sourceX,
     sourceY,
-    sourcePosition,
     targetX,
     targetY,
+    sourcePosition,
     targetPosition,
-  });
+    style = {},
+    markerEnd,
+  }) => {
+    const [edgePath] = getBezierPath({
+      sourceX,
+      sourceY,
+      sourcePosition,
+      targetX,
+      targetY,
+      targetPosition,
+    });
 
-  return (
-    <>
-      <BaseEdge path={edgePath} markerEnd={markerEnd} style={style} />
-    </>
-  );
-}
+    return (
+      <>
+        <BaseEdge path={edgePath} markerEnd={markerEnd} style={style} id={id} />
+      </>
+    );
+  },
+);

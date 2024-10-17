@@ -29,7 +29,7 @@ const generateTopicNode = ({
 }): Node => {
   return {
     id: topic.id,
-    type: 'selectorNode',
+    type: 'customNode',
     width,
 
     data: {

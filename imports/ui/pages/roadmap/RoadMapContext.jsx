@@ -13,14 +13,16 @@ export const RoadMapContextProvider = React.memo(({ children }) => {
       try {
         setLoading(true);
         const roadmaps = await roadMapApi.getList();
+        const lastCreatedRoadmap = roadmaps.at(-1);
 
-        const userProgress = await userProgressApi.getUserProgressByRoadMap({
-          roadmapId: roadmaps[0]._id,
-        });
+        const userProgress =
+          await userProgressApi.getCurrentUserProgressByRoadMap({
+            roadmapId: lastCreatedRoadmap._id,
+          });
 
         setData({
           userProgress,
-          roadmap: roadmaps[0],
+          roadmap: lastCreatedRoadmap,
         });
       } catch (e) {
         console.error(e);
@@ -33,7 +35,7 @@ export const RoadMapContextProvider = React.memo(({ children }) => {
   }, []);
 
   const getUserProgress = React.useCallback(async () => {
-    const userProgress = await userProgressApi.getUserProgressByRoadMap({
+    const userProgress = await userProgressApi.getCurrentUserProgressByRoadMap({
       roadmapId: data.roadmap._id,
     });
 
