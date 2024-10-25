@@ -57,6 +57,9 @@ export const isNodeTopic = (node) =>
 export const getTasks = (nodes) => nodes.filter((node) => !isNodeTopic(node));
 
 export const getStat = (rawScheme) => {
+  if (!rawScheme) {
+    return { total: 0, doneTaskCount: 0, inProgressTaskCount: 0, percent: 0 };
+  }
   const skills = Object.values(rawScheme.skills);
   const total = skills.length;
 

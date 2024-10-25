@@ -30,7 +30,6 @@ export const RoadMap = React.memo(({ isReadOnly }) => {
     getRoadmap,
     isLoading: isUpdatingRoadmap,
   } = useRoadMapContext();
-  console.log('init', roadmap);
   const { update, isLoading, create } = useRoadmapApi();
 
   const [rfInstance, setRfInstance] = React.useState(null);
@@ -82,7 +81,7 @@ export const RoadMap = React.memo(({ isReadOnly }) => {
     const flow = rfInstance.toObject();
     const prepared = prepareRoadmapToSave(flow);
 
-    await update(roadmap._id, prepared);
+    await update(roadmap.id, prepared);
 
     setChanges(false);
   };

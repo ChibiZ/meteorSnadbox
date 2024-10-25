@@ -1,6 +1,11 @@
 import { Meteor } from 'meteor/meteor';
 import { ContentCollection } from './ContentCollection';
 
+// type Content {
+//   title:string;
+//   text:string;
+// }
+
 Meteor.methods({
   'content.get'() {
     return ContentCollection.find({}).fetchAsync();

@@ -22,6 +22,8 @@ import './styles.css';
 import { useUserProgressApi } from '/imports/ui/pages/roadmap/useUserProgressApi';
 import { useRoadMapContext } from '/imports/ui/pages/roadmap//RoadMapContext';
 import { TaskStatus } from '/imports/ui/shared';
+import { useContent } from './useContent';
+import { Loading } from '../../../../components/loading';
 
 const TASK_STATUSES = [
   {
@@ -42,9 +44,10 @@ const TASK_STATUSES = [
 export const InfoNodePage = React.memo(({ isOpen, onClose, node }) => {
   const { updateTask, isLoading: isUpdatingStatusTask } = useUserProgressApi();
   const { roadmap, getRoadmap } = useRoadMapContext();
-
+  const { data, isLoading: isLoadingContent } = useContent({ id: node.id });
   const currentStatus = roadmap.rawScheme?.skills?.[node.id]?.status;
 
+  console.log(data);
   const onSelectStatus = async (status) => {
     await updateTask({
       status,
@@ -96,21 +99,28 @@ export const InfoNodePage = React.memo(({ isOpen, onClose, node }) => {
           </ButtonGroup>
 
           <div className="task-info">
-            <Heading>HTML</Heading>
-            <Text>
-              HTML (Hypertext Markup Language) is the standard markup language
-              used to create web pages and web applications. It provides a
-              structure for content on the World Wide Web, using a system of
-              elements and attributes to define the layout and content of a
-              document. HTML elements are represented by tags, which browsers
-              interpret to render the visual and auditory elements of a web
-              page. The language has evolved through several versions, with
-              HTML5 being the current standard, introducing semantic elements,
-              improved multimedia support, and enhanced form controls. HTML
-              works in conjunction with CSS for styling and JavaScript for
-              interactivity, forming the foundation of modern web development.
-              Visit the following resources to learn more:
-            </Text>
+            {isLoadingContent ? (
+              <Loading />
+            ) : (
+              <>
+                <Heading mb={2}>{node.data.label}</Heading>
+                <Text>
+                  HTML (Hypertext Markup Language) is the standard markup
+                  language used to create web pages and web applications. It
+                  provides a structure for content on the World Wide Web, using
+                  a system of elements and attributes to define the layout and
+                  content of a document. HTML elements are represented by tags,
+                  which browsers interpret to render the visual and auditory
+                  elements of a web page. The language has evolved through
+                  several versions, with HTML5 being the current standard,
+                  introducing semantic elements, improved multimedia support,
+                  and enhanced form controls. HTML works in conjunction with CSS
+                  for styling and JavaScript for interactivity, forming the
+                  foundation of modern web development. Visit the following
+                  resources to learn more:
+                </Text>
+              </>
+            )}
           </div>
         </DrawerBody>
       </DrawerContent>

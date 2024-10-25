@@ -50,8 +50,8 @@ Meteor.methods({
 });
 
 Meteor.methods({
-  'roadmap.update'({ _id, data }) {
-    return RoadmapsCollection.updateAsync(_id, {
+  'roadmap.update'({ id, data }) {
+    return RoadmapsCollection.updateAsync(id, {
       $set: {
         flowData: data,
       },

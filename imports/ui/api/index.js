@@ -1,6 +1,6 @@
 export class RoadMapApi {
   async update({ id, data }) {
-    return Meteor.callAsync('roadmap.update', { _id: id, data });
+    return Meteor.callAsync('roadmap.update', { id, data });
   }
 
   async create(data) {
@@ -68,6 +68,15 @@ export class UsersApi {
   }
 }
 
+class SkillContentApi {
+  getById(id) {
+    return Meteor.callAsync('content.getById', {
+      id,
+    });
+  }
+}
+
+export const skillContentApi = new SkillContentApi();
 export const roadMapApi = new RoadMapApi();
 export const userProgressApi = new UserProgress();
 
