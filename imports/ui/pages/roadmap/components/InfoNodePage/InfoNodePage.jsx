@@ -47,8 +47,9 @@ export const InfoNodePage = React.memo(({ isOpen, onClose, node }) => {
   const { data, isLoading: isLoadingContent } = useContent({ id: node.id });
   const currentStatus = roadmap.rawScheme?.skills?.[node.id]?.status;
 
-  console.log(data);
   const onSelectStatus = async (status) => {
+    if (currentStatus === status) return;
+
     await updateTask({
       status,
       roadmapId: roadmap.id,
@@ -103,22 +104,8 @@ export const InfoNodePage = React.memo(({ isOpen, onClose, node }) => {
               <Loading />
             ) : (
               <>
-                <Heading mb={2}>{node.data.label}</Heading>
-                <Text>
-                  HTML (Hypertext Markup Language) is the standard markup
-                  language used to create web pages and web applications. It
-                  provides a structure for content on the World Wide Web, using
-                  a system of elements and attributes to define the layout and
-                  content of a document. HTML elements are represented by tags,
-                  which browsers interpret to render the visual and auditory
-                  elements of a web page. The language has evolved through
-                  several versions, with HTML5 being the current standard,
-                  introducing semantic elements, improved multimedia support,
-                  and enhanced form controls. HTML works in conjunction with CSS
-                  for styling and JavaScript for interactivity, forming the
-                  foundation of modern web development. Visit the following
-                  resources to learn more:
-                </Text>
+                <Heading mb={2}>{data?.title ?? node.data.label}</Heading>
+                <Text>{data?.text ?? 'Пока ничего нет...'}</Text>
               </>
             )}
           </div>

@@ -24,7 +24,7 @@ export function Navbar() {
         color={useColorModeValue('gray.600', 'white')}
         minH="60px"
         borderBottom={1}
-        px={2}
+        px={3}
         borderStyle="solid"
         borderColor={useColorModeValue('gray.200', 'gray.900')}
         align="center"

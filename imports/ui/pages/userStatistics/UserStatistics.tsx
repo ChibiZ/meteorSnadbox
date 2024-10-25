@@ -15,7 +15,7 @@ const UserStatistics = () => {
   if (isLoading) return <Loading />;
 
   return (
-    <div>
+    <div style={{ overflow: 'auto', maxHeight: '100%' }}>
       <ProfileInfo user={user} data={userStat} />
       {data ? (
         <TaskTree data={data} />

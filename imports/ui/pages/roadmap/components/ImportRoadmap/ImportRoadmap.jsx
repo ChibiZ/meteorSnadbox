@@ -59,7 +59,7 @@ export const ImportRoadmap = React.memo(({ onCreate }) => {
   }, []);
 
   return (
-    <div style={{ position: 'absolute', top: 10 }}>
+    <div>
       <Button
         variant={'solid'}
         onClick={onOpen}

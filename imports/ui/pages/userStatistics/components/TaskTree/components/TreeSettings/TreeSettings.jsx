@@ -5,8 +5,8 @@ import { TaskStatus } from '/imports/ui/shared';
 
 export const TreeSettings = ({ onChangeFilter, onToggle, isExpandedAll }) => {
   return (
-    <div>
-      <Stack spacing={5} direction="row">
+    <div className="tree-header">
+      <Stack spacing={4} direction="row">
         <Checkbox
           colorScheme="green"
           onChange={onChangeFilter(TaskStatus.Done)}

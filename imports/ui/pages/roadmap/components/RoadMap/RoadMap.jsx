@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { Button } from '@chakra-ui/react';
-import { CheckIcon } from '@chakra-ui/icons';
+import { CheckIcon, InfoIcon } from '@chakra-ui/icons';
 import {
   ReactFlow,
   Controls,
@@ -132,30 +132,31 @@ export const RoadMap = React.memo(({ isReadOnly }) => {
         />
       )}
 
-      {isEditable && <ImportRoadmap onCreate={onCreateRoadmap} />}
+      <div className="roadmap-toolbar">
+        {isEditable && <ImportRoadmap onCreate={onCreateRoadmap} />}
 
-      {isEditable && hasChanges && (
-        <Button
-          style={{ position: 'absolute', top: 54 }}
-          leftIcon={<CheckIcon />}
-          onClick={onSaveChanges}
-          size="sm"
-          isLoading={isLoading}
-        >
-          Сохранить изменения
-        </Button>
-      )}
+        {isEditable && hasChanges && (
+          <Button
+            leftIcon={<CheckIcon />}
+            onClick={onSaveChanges}
+            size="sm"
+            isLoading={isLoading}
+          >
+            Сохранить изменения
+          </Button>
+        )}
 
-      {isEditable && (
-        <Button
-          style={{ position: 'absolute', top: 10, left: 200 }}
-          size="sm"
-          as={Link}
-          to={routes.statistics}
-        >
-          Админка
-        </Button>
-      )}
+        {isEditable && (
+          <Button
+            size="sm"
+            as={Link}
+            to={routes.statistics}
+            leftIcon={<InfoIcon />}
+          >
+            Админка
+          </Button>
+        )}
+      </div>
 
       <TrackProgress />
 

@@ -4,10 +4,11 @@ import './styles.module.css';
 import 'rc-tree/assets/index.css';
 
 import Tree, { TreeNode } from 'rc-tree';
-import { Card, CardBody } from '@chakra-ui/react';
+import { Badge, Card, CardBody } from '@chakra-ui/react';
 import { StatusIndicator } from '/imports/ui/pages/roadmap/components/InfoNodePage/StatusIndicator';
 import { TreeSettings } from './components/TreeSettings';
 import { filterByStatuses } from './utils';
+import { Tooltip } from '@chakra-ui/icons';
 
 export const TaskTree = React.memo(({ data }) => {
   const treeRef = React.useRef();
@@ -50,6 +51,32 @@ export const TaskTree = React.memo(({ data }) => {
     treeRef.current?.setExpandedKeys(keys);
   }, [isExpandedAll, filteredTree]);
 
+  const getTitleForSkill = (skill) => {
+    return (
+      <div>
+        {skill.skill}
+        <span className="skill-info">
+          <Tooltip label={'Уровень'} placement={'top'}>
+            <Badge className={`skill-level  ${skill.level}`}>
+              {skill.level}
+            </Badge>
+          </Tooltip>
+
+          {skill.priority && (
+            <Tooltip label={'Приоритет'} placement={'top'}>
+              <Badge
+                colorScheme={skill.priority === 'Required' ? 'red' : 'gray'}
+              >
+                {skill.priority}
+              </Badge>
+            </Tooltip>
+          )}
+        </span>
+      </div>
+    );
+  };
+
+  console.log(filteredTree);
   return (
     <Card my={2}>
       <CardBody>
@@ -82,7 +109,7 @@ export const TaskTree = React.memo(({ data }) => {
                       expanded={true}
                       selectable={false}
                       id={skillId}
-                      title={filteredTree.skills[skillId].skill}
+                      title={getTitleForSkill(filteredTree.skills[skillId])}
                       isLeaf={true}
                       icon={
                         <StatusIndicator
