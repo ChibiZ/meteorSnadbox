@@ -22,7 +22,7 @@ import { DEFAULT_VIEWPORT, edgeTypes, nodeTypes } from './consts';
 import { Link } from 'react-router-dom';
 import { routes } from '/imports/ui/routes/routes';
 import { createFlowDataFromJSON } from '/imports/ui/pages/roadmap/tree/createFlowDataFromJSON';
-import { Loading } from '../../../../components/loading';
+import { Loading } from '/imports/ui/components/loading';
 
 export const RoadMap = React.memo(({ isReadOnly }) => {
   const {
@@ -30,6 +30,7 @@ export const RoadMap = React.memo(({ isReadOnly }) => {
     getRoadmap,
     isLoading: isUpdatingRoadmap,
   } = useRoadMapContext();
+  console.log('init', roadmap);
   const { update, isLoading, create } = useRoadmapApi();
 
   const [rfInstance, setRfInstance] = React.useState(null);
@@ -44,9 +45,8 @@ export const RoadMap = React.memo(({ isReadOnly }) => {
   ]);
 
   const NODES = React.useMemo(() => {
-    console.log('fin');
     return setStatusForNodes(nodes, roadmap?.rawScheme);
-  }, [nodes, roadmap.rawScheme]);
+  }, [nodes, roadmap?.rawScheme]);
 
   const onConnect = useCallback(
     (connection) => {

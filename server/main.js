@@ -1,9 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
-import '../imports/api/roadmap';
-import '../imports/api/userProgress';
-import '../imports/api/accounts/AccountsMethods';
+import '/imports/api/roadmap';
+import '/imports/api/userProgress';
+import '/imports/api/accounts/AccountsMethods';
+import '/imports/api/content';
 
 const SEED_USERNAME = 'test';
 const SEED_PASSWORD = 'test';

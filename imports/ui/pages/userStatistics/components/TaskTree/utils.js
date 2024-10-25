@@ -31,7 +31,6 @@ export function filterByStatuses(data, statuses) {
       .filter((block) => block.children.length),
   );
 
-  console.log({ blocks, skills, groups });
   return {
     blocks,
     skills,

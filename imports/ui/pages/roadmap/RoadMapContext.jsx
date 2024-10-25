@@ -20,7 +20,6 @@ export const RoadMapContextProvider = React.memo(({ children }) => {
           id: lastCreatedRoadmap._id,
         },
       );
-      console.log('upd', roadmapData);
 
       setRoadmap(roadmapData);
     } catch (e) {

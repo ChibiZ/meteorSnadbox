@@ -6,7 +6,6 @@ import './styles.module.css';
 
 export const TrackProgress = React.memo(() => {
   const { roadmap } = useRoadMapContext();
-  console.log(roadmap);
   const { percent, total, doneTaskCount, inProgressTaskCount } =
     useTrackProgress(roadmap.rawScheme);
 

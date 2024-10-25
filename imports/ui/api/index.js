@@ -1,6 +1,5 @@
 export class RoadMapApi {
   async update({ id, data }) {
-    console.log('upd', id, data);
     return Meteor.callAsync('roadmap.update', { _id: id, data });
   }
 

@@ -58,11 +58,7 @@ export const TaskTree = React.memo(({ data }) => {
           onToggle={setExpandAll}
           isExpandedAll={isExpandedAll}
         />
-        <Tree
-          expandAction="click"
-          ref={treeRef}
-          onExpand={(e) => console.log({ e })}
-        >
+        <Tree expandAction="click" ref={treeRef}>
           {Object.values(filteredTree.blocks).map((block) => (
             <TreeNode
               title={block.block}
