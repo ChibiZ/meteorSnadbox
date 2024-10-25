@@ -6,7 +6,10 @@ export const CustomNode = memo(
     const style = draggable ? undefined : { opacity: 0 };
 
     return (
-      <div className={`node ${data.kind} ${data.status ?? ''}`}>
+      <div
+        className={`node ${data.kind} ${data.status ?? ''}`}
+        style={data.style}
+      >
         <div>{data.label}</div>
 
         <Handle

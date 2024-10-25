@@ -14,7 +14,6 @@ const UserStatistics = () => {
 
   if (isLoading) return <Loading />;
 
-  console.log(isLoading, data);
   return (
     <div>
       <ProfileInfo user={user} data={userStat} />

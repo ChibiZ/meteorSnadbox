@@ -5,10 +5,10 @@ import { useTrackProgress } from './useTrackProgress';
 import './styles.module.css';
 
 export const TrackProgress = React.memo(() => {
-  const { roadmap, userProgress } = useRoadMapContext();
-
+  const { roadmap } = useRoadMapContext();
+  console.log(roadmap);
   const { percent, total, doneTaskCount, inProgressTaskCount } =
-    useTrackProgress(roadmap, userProgress);
+    useTrackProgress(roadmap.rawScheme);
 
   return (
     <div className="trackProgress">

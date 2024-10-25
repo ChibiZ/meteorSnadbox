@@ -5,24 +5,22 @@ import 'rc-tree/assets/index.css';
 
 import Tree, { TreeNode } from 'rc-tree';
 import { Card, CardBody } from '@chakra-ui/react';
-import { StatusIndicator } from '../../../roadmap/components/InfoNodePage/StatusIndicator';
+import { StatusIndicator } from '/imports/ui/pages/roadmap/components/InfoNodePage/StatusIndicator';
 import { TreeSettings } from './components/TreeSettings';
+import { filterByStatuses } from './utils';
 
 export const TaskTree = React.memo(({ data }) => {
   const treeRef = React.useRef();
   const [statuses, setStatuses] = React.useState([]);
   const [isExpandedAll, setExpandAll] = React.useState(false);
 
-  const filteredTree = statuses.length
-    ? data
-        .map((node) => ({
-          ...node,
-          children: node.children?.filter(({ status }) =>
-            statuses.includes(status),
-          ),
-        }))
-        .filter((node) => node?.children.length)
-    : data;
+  const filteredTree = React.useMemo(() => {
+    if (!statuses.length) return data;
+
+    const filtered = filterByStatuses(data, statuses);
+
+    return filtered;
+  }, [data, statuses]);
 
   const onChangeFilter =
     (value) =>
@@ -37,12 +35,17 @@ export const TaskTree = React.memo(({ data }) => {
     };
 
   React.useEffect(() => {
-    console.log(isExpandedAll);
     if (!isExpandedAll) {
       treeRef.current?.setExpandedKeys([]);
       return;
     }
-    const keys = filteredTree.map((node, i) => `0-${i}`);
+
+    const { blocks } = filteredTree;
+    const blocksAsArray = Object.values(blocks);
+    const keys = blocksAsArray.flatMap((block, i) => [
+      `0-${i}`,
+      ...block.children.map((_, j) => `0-${i}-${j}`),
+    ]);
 
     treeRef.current?.setExpandedKeys(keys);
   }, [isExpandedAll, filteredTree]);
@@ -58,25 +61,41 @@ export const TaskTree = React.memo(({ data }) => {
         <Tree
           expandAction="click"
           ref={treeRef}
-          onExpand={(e) => console.log(e)}
+          onExpand={(e) => console.log({ e })}
         >
-          {filteredTree.map((node) => (
+          {Object.values(filteredTree.blocks).map((block) => (
             <TreeNode
-              title={node.label}
+              title={block.block}
               icon={<div className="tree-topic-node"></div>}
               className={'topic-node'}
+              id={block.id}
+              expanded={true}
               selectable={false}
-              id={node.id}
             >
-              {node.children?.map((child) => (
+              {block.children?.map((groupId) => (
                 <TreeNode
+                  icon={<div className="tree-topic-node"></div>}
+                  className={'topic-node'}
+                  id={groupId}
+                  title={filteredTree.groups[groupId].group}
                   expanded={true}
                   selectable={false}
-                  id={child.id}
-                  title={child.label}
-                  isLeaf={true}
-                  icon={<StatusIndicator status={child.status} />}
-                ></TreeNode>
+                >
+                  {filteredTree.groups[groupId].children?.map((skillId) => (
+                    <TreeNode
+                      expanded={true}
+                      selectable={false}
+                      id={skillId}
+                      title={filteredTree.skills[skillId].skill}
+                      isLeaf={true}
+                      icon={
+                        <StatusIndicator
+                          status={filteredTree.skills[skillId].status}
+                        />
+                      }
+                    ></TreeNode>
+                  ))}
+                </TreeNode>
               ))}
             </TreeNode>
           ))}

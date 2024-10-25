@@ -1,4 +1,4 @@
-import { filterTasksByStatus, TaskStatus } from '../../../../shared';
+import { filterTasksByStatus, TaskStatus } from '/imports/ui/shared';
 
 export const prepareRoadmapToSave = (data) => {
   return {
@@ -13,21 +13,37 @@ export const prepareRoadmapToSave = (data) => {
   };
 };
 
-export const setStatusForNodes = (nodes, userProgress) => {
+export const setStatusForNodes = (nodes, rawScheme) => {
   if (!nodes) return [];
-  if (!userProgress) return nodes;
 
   return nodes.map((node) => {
     const copiedNode = { ...node };
 
-    if (userProgress?.[node.id]) {
+    const status =
+      rawScheme?.groups[node.id]?.status ?? rawScheme?.skills[node.id]?.status;
+
+    if (status) {
       copiedNode.data = {
         ...copiedNode.data,
-        ...userProgress[copiedNode.id],
+        status,
       };
     }
 
-    if (!userProgress?.[node.id] && copiedNode.data.status) {
+    /// remove status from flow data
+    if (
+      node.data.kind === 'group' &&
+      !rawScheme?.groups[node.id].status &&
+      copiedNode.data.status
+    ) {
+      delete copiedNode.data.status;
+    }
+    /// remove status from flow data
+
+    if (
+      node.data.kind === 'skill' &&
+      !rawScheme?.skills[node.id].status &&
+      copiedNode.data.status
+    ) {
       delete copiedNode.data.status;
     }
 
@@ -35,19 +51,22 @@ export const setStatusForNodes = (nodes, userProgress) => {
   });
 };
 
-export const isNodeTopic = (node) => node.data.kind === 'topic';
+export const isNodeTopic = (node) =>
+  ['block', 'group'].includes(node.data.kind);
 
 export const getTasks = (nodes) => nodes.filter((node) => !isNodeTopic(node));
 
-export const getStat = (nodes, userProgress) => {
-  const total = getTasks(nodes ?? []).length;
+export const getStat = (rawScheme) => {
+  const skills = Object.values(rawScheme.skills);
+  const total = skills.length;
 
-  const doneTaskCount = filterTasksByStatus(userProgress, TaskStatus.Done);
+  const doneTaskCount = skills.filter(
+    ({ status }) => status === TaskStatus.Done,
+  ).length;
 
-  const inProgressTaskCount = filterTasksByStatus(
-    userProgress,
-    TaskStatus.InProgress,
-  );
+  const inProgressTaskCount = skills.filter(
+    ({ status }) => status === TaskStatus.InProgress,
+  ).length;
 
   const percent = Math.floor((doneTaskCount / total) * 100);
   return {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useToast } from '@chakra-ui/react';
-import { roadMapApi } from '../../api';
+import { roadMapApi } from '/imports/ui/api';
 
 export function useRoadmapApi() {
   const [isLoading, setLoading] = React.useState(false);
@@ -30,10 +30,11 @@ export function useRoadmapApi() {
     }
   };
 
-  const create = async (data) => {
+  const create = async ({ flowData, rawScheme }) => {
     try {
       setLoading(true);
-      await roadMapApi.create({ data });
+      await roadMapApi.create({ flowData, rawScheme });
+
       toast({
         title: 'Roadmap создан',
         status: 'success',

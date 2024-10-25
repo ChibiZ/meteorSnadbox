@@ -19,8 +19,8 @@ import {
 import { ArrowDownIcon } from '@chakra-ui/icons';
 import { StatusIndicator } from './StatusIndicator';
 import './styles.css';
-import { useUserProgressApi } from '../../useUserProgressApi';
-import { useRoadMapContext } from '../../RoadMapContext';
+import { useUserProgressApi } from '/imports/ui/pages/roadmap/useUserProgressApi';
+import { useRoadMapContext } from '/imports/ui/pages/roadmap//RoadMapContext';
 import { TaskStatus } from '/imports/ui/shared';
 
 const TASK_STATUSES = [
@@ -41,24 +41,17 @@ const TASK_STATUSES = [
 
 export const InfoNodePage = React.memo(({ isOpen, onClose, node }) => {
   const { updateTask, isLoading: isUpdatingStatusTask } = useUserProgressApi();
-  const { userProgress, getUserProgress, roadmap } = useRoadMapContext();
+  const { roadmap, getRoadmap } = useRoadMapContext();
 
-  const currentStatus = userProgress?.[node.id]?.status;
+  const currentStatus = roadmap.rawScheme?.skills?.[node.id]?.status;
 
   const onSelectStatus = async (status) => {
-    console.log(
-      'upd',
-      { roadmap },
-      { status },
-      { id: node.id },
-      { find: roadmap.nodes.find(({ id }) => id === node.id) },
-    );
     await updateTask({
       status,
-      roadmapId: roadmap._id,
+      roadmapId: roadmap.id,
       id: node.id,
     });
-    getUserProgress();
+    getRoadmap();
   };
 
   return (

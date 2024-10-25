@@ -1,6 +1,6 @@
 import React from 'react';
-import { roadMapApi, userProgressApi } from '../../api';
-import { filterTasksByStatus, TaskStatus } from '../../shared';
+import { roadMapApi, userProgressApi } from '/imports/ui/api';
+import { filterTasksByStatus, TaskStatus } from '/imports/ui/shared';
 import { getTasks } from '../roadmap/components/RoadMap/utils';
 
 export function useTableData() {
@@ -19,7 +19,7 @@ export function useTableData() {
       });
 
       const userStat = users.map((user) => {
-        const total = getTasks(lastCreatedRoadmap?.nodes ?? []).length;
+        const total = getTasks(lastCreatedRoadmap?.flowData.nodes ?? []).length;
 
         const doneTaskCount = filterTasksByStatus(
           user.progress,

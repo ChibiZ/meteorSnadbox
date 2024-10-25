@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Checkbox, Stack, Divider } from '@chakra-ui/react';
-import { TaskStatus } from '../../../../../../shared';
+import { TaskStatus } from '/imports/ui/shared';
 
 export const TreeSettings = ({ onChangeFilter, onToggle, isExpandedAll }) => {
   return (

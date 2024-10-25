@@ -20,7 +20,7 @@ Meteor.startup(async () => {
     if (!(await Meteor.users.find({ role: 'Admin' }).countAsync())) {
       Accounts.createUser({
         username: 'admin',
-        password: 'admin',
+        password: 'admin5423',
         isAdmin: true,
       });
     }

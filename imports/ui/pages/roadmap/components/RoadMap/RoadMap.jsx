@@ -12,35 +12,41 @@ import React from 'react';
 import '@xyflow/react/dist/style.css';
 import { InfoNodePage } from '../InfoNodePage';
 import { ImportRoadmap } from '../ImportRoadmap';
-import { createFlowDataFromText } from '/imports/ui/pages/roadmap/tree/createTreeFromTxt';
 
-import { useRoadmapApi } from '../../useRoadmapApi';
-import { SUB_TOPIC_EDGE_STYLES } from '../../tree/consts';
-import { useRoadMapContext } from '../../RoadMapContext';
+import { useRoadmapApi } from '/imports/ui/pages/roadmap/useRoadmapApi';
+import { SUB_TOPIC_EDGE_STYLES } from '/imports/ui/pages/roadmap/tree/consts';
+import { useRoadMapContext } from '/imports/ui/pages/roadmap/RoadMapContext';
 import { isNodeTopic, prepareRoadmapToSave, setStatusForNodes } from './utils';
 import { TrackProgress } from './components/TrackProgress';
 import { DEFAULT_VIEWPORT, edgeTypes, nodeTypes } from './consts';
 import { Link } from 'react-router-dom';
-import { routes } from '../../../../routes/routes';
+import { routes } from '/imports/ui/routes/routes';
+import { createFlowDataFromJSON } from '/imports/ui/pages/roadmap/tree/createFlowDataFromJSON';
+import { Loading } from '../../../../components/loading';
 
 export const RoadMap = React.memo(({ isReadOnly }) => {
-  const { roadmap, userProgress } = useRoadMapContext();
+  const {
+    roadmap,
+    getRoadmap,
+    isLoading: isUpdatingRoadmap,
+  } = useRoadMapContext();
   const { update, isLoading, create } = useRoadmapApi();
 
   const [rfInstance, setRfInstance] = React.useState(null);
-
-  const [nodes, setNodes, onNodesChange] = useNodesState(
-    setStatusForNodes(roadmap.nodes, userProgress),
-  );
-  const [edges, setEdges, onEdgesChange] = useEdgesState([
-    ...(roadmap?.edges ?? []),
-  ]);
   const [selectedNode, setSelectedNode] = React.useState(null);
   const [hasChanges, setChanges] = React.useState(false);
 
+  const [nodes, setNodes, onNodesChange] = useNodesState(
+    setStatusForNodes(roadmap?.flowData.nodes, roadmap?.rawScheme),
+  );
+  const [edges, setEdges, onEdgesChange] = useEdgesState([
+    ...(roadmap?.flowData?.edges ?? []),
+  ]);
+
   const NODES = React.useMemo(() => {
-    return setStatusForNodes(nodes, userProgress);
-  }, [nodes, userProgress]);
+    console.log('fin');
+    return setStatusForNodes(nodes, roadmap?.rawScheme);
+  }, [nodes, roadmap.rawScheme]);
 
   const onConnect = useCallback(
     (connection) => {
@@ -62,13 +68,12 @@ export const RoadMap = React.memo(({ isReadOnly }) => {
     setSelectedNode(node);
   }, []);
 
-  const onCreateRoadmap = async (value) => {
-    if (!nodes.length) return;
-    const tree = createFlowDataFromText(value);
-    await create(tree);
-
-    setNodes([...tree.nodes]);
-    setEdges([...tree.edges]);
+  const onCreateRoadmap = async (rawScheme) => {
+    const { flowData, enchancedRawScheme } = createFlowDataFromJSON(rawScheme);
+    await create({ flowData, rawScheme: enchancedRawScheme });
+    await getRoadmap();
+    setNodes([...flowData.nodes]);
+    setEdges([...flowData.edges]);
   };
 
   const onSaveChanges = async () => {
@@ -132,7 +137,7 @@ export const RoadMap = React.memo(({ isReadOnly }) => {
 
       {isEditable && hasChanges && (
         <Button
-          style={{ position: 'absolute', top: 124 }}
+          style={{ position: 'absolute', top: 54 }}
           leftIcon={<CheckIcon />}
           onClick={onSaveChanges}
           size="sm"
@@ -144,7 +149,7 @@ export const RoadMap = React.memo(({ isReadOnly }) => {
 
       {isEditable && (
         <Button
-          style={{ position: 'absolute', top: 80, left: 200 }}
+          style={{ position: 'absolute', top: 10, left: 200 }}
           size="sm"
           as={Link}
           to={routes.statistics}
@@ -154,6 +159,12 @@ export const RoadMap = React.memo(({ isReadOnly }) => {
       )}
 
       <TrackProgress />
+
+      {isUpdatingRoadmap && (
+        <div className="overlay-loader-container">
+          <Loading />
+        </div>
+      )}
     </>
   );
 });

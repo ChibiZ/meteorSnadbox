@@ -1,16 +1,5 @@
 import { Button, FormControl, IconButton, Switch } from '@chakra-ui/react';
 import React from 'react';
-import { DotIcon } from './DotIocn';
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-} from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 export const createColumns = ({ onChangeRole, onRemove }) => {

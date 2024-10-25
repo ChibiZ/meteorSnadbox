@@ -1,7 +1,7 @@
 import React from 'react';
 import { useToast } from '@chakra-ui/react';
-import { userProgressApi } from '../../api';
-import { TaskStatus } from '../../shared';
+import { userProgressApi } from '/imports/ui/api';
+import { TaskStatus } from '/imports/ui/shared';
 
 export function useUserProgressApi() {
   const [isLoading, setLoading] = React.useState(false);

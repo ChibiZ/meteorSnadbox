@@ -1,10 +1,10 @@
 import React from 'react';
 import { getStat } from '../../utils';
 
-export function useTrackProgress(roadmap, userProgress) {
+export function useTrackProgress(rawScheme) {
   const data = React.useMemo(() => {
-    return getStat(roadmap.nodes, userProgress);
-  }, [userProgress, roadmap]);
+    return getStat(rawScheme);
+  }, [rawScheme]);
 
   return data;
 }

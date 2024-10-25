@@ -1,19 +1,21 @@
 import React from 'react';
 import { BrowserRouter, Routes as ReactRoutes, Route } from 'react-router-dom';
 
-import { Layout } from '../components/Layout/layout';
-import { SignInPage } from '../pages/auth/sign-in-page';
-import { RequireAuth } from '../components/RequireAuth';
-import { RoadMapPage } from '../pages/roadmap';
-import { RoleAccess } from '../components/RoleAccess';
-import { Roles } from '../shared';
-import { Page404 } from '../pages/page404';
-import { Loading } from '../components/loading';
+import { Layout } from '/imports/ui/components/Layout/layout';
+import { SignInPage } from '/imports/ui/pages/auth/sign-in-page';
+import { RequireAuth } from '/imports/ui/components/RequireAuth';
+import { RoadMapPage } from '/imports/ui/pages/roadmap';
+import { RoleAccess } from '/imports/ui/components/RoleAccess';
+import { Roles } from '/imports/ui/shared';
+import { Page404 } from '/imports/ui/pages/page404';
+import { Loading } from '/imports/ui/components/loading';
 
 const UserStatistics = React.lazy(
-  () => import('../pages/userStatistics/UserStatistics'),
+  () => import('/imports/ui/pages/userStatistics/UserStatistics'),
 );
-const Statistics = React.lazy(() => import('../pages/statistics/Statistics'));
+const Statistics = React.lazy(
+  () => import('/imports/ui/pages/statistics/Statistics'),
+);
 
 export const routes = {
   root: '/',

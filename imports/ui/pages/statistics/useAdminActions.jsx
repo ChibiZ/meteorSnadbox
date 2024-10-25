@@ -1,4 +1,4 @@
-import { usersApi } from '../../api';
+import { usersApi } from '/imports/ui/api';
 import { useToast } from '@chakra-ui/react';
 
 export function useAdminActions(successfulCallback) {

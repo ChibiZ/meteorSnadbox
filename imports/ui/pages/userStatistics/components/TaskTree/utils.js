@@ -1,49 +1,40 @@
-export const getTreeFromFlowObject = (nodes, edges) => {
-  const map = new Map(
-    nodes.map((node) => [node.id, { ...node, children: [] }]),
-  );
-  for (const { source, target } of edges) map.get(source).children.push(target);
-
-  const tree = [...map.values()].filter((node) => node.children.length);
-
-  return tree;
-};
-
-export const normalizeTreeData = (tree, nodes) => {
-  const nodesById = nodes.reduce(
+const toDictById = (arr) =>
+  arr.reduce(
     (acc, cur) => ({
       ...acc,
       [cur.id]: cur,
     }),
     {},
   );
+export function filterByStatuses(data, statuses) {
+  const skills = toDictById(
+    Object.values(data.skills).filter((skill) => {
+      return statuses.includes(skill.status);
+    }),
+  );
 
-  const getDataFromNode = (node) => ({
-    id: node.id,
-    ...node.data,
-  });
+  const groups = toDictById(
+    Object.values(data.groups)
+      .map((group) => ({
+        ...group,
+        children: group.children.filter((skillId) => skills[skillId]),
+      }))
+      .filter((group) => group.children.length),
+  );
 
-  return tree.map((node) => {
-    const newNode = getDataFromNode(node);
+  const blocks = toDictById(
+    Object.values(data.blocks)
+      .map((block) => ({
+        ...block,
+        children: block.children.filter((groupId) => groups[groupId]),
+      }))
+      .filter((block) => block.children.length),
+  );
 
-    if (node.children) {
-      newNode.children = node.children.map((childNode) =>
-        getDataFromNode(nodesById[childNode]),
-      );
-    }
-
-    return newNode;
-  });
-};
-
-export const mergeTreeWithUserProgress = (tree, userProgress) => {
-  if (!userProgress) return tree;
-
-  return tree.map((node) => ({
-    ...node,
-    children: node.children?.map((childNode) => ({
-      ...childNode,
-      ...userProgress[childNode.id],
-    })),
-  }));
-};
+  console.log({ blocks, skills, groups });
+  return {
+    blocks,
+    skills,
+    groups,
+  };
+}

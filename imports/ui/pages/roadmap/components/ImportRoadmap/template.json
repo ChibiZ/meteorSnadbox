@@ -1,0 +1,1127 @@
+[
+  {
+    "block": "CSS/HTML",
+    "groups": [
+      {
+        "group": "Базовый HTML",
+        "skills": [
+          {
+            "skill": "Структура документа",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Семантика HTML",
+            "level": "Good",
+            "priority": "Required"
+          }
+        ]
+      },
+      {
+        "group": "Методанные",
+        "skills": [
+          {
+            "skill": "Метаданные",
+            "level": "Good",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "HTML",
+        "skills": [
+          {
+            "skill": "Атрибуты",
+            "level": "Base",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Таблицы",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Формы",
+            "level": "Good",
+            "priority": "Required"
+          }
+        ]
+      },
+      {
+        "group": "Медиа",
+        "skills": [
+          {
+            "skill": "Изображения",
+            "level": "Strong",
+            "priority": "Required"
+          }
+        ]
+      },
+      {
+        "group": "Доступность Элементов",
+        "skills": [
+          {
+            "skill": "Доступность элементов",
+            "level": "Expert",
+            "priority": "Advanced"
+          }
+        ]
+      },
+      {
+        "group": "CSS селекторы",
+        "skills": [
+          {
+            "skill": "Селекторы",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Наследование",
+            "level": "Good",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "CSS",
+        "skills": [
+          {
+            "skill": "Единицы измерения размеров",
+            "level": "Good",
+            "priority": "Required"
+          },
+          {
+            "skill": "Анимации",
+            "level": "Good",
+            "priority": "Advanced"
+          },
+          {
+            "skill": "Z-индекс и позиционирование",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Repain/Reflow",
+            "level": "Strong",
+            "priority": "Advanced"
+          }
+        ]
+      },
+      {
+        "group": "Скелет",
+        "skills": [
+          {
+            "skill": "Сетка",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Grid",
+            "level": "Good",
+            "priority": "Advanced"
+          },
+          {
+            "skill": "Flex",
+            "level": "Base",
+            "priority": "Required"
+          }
+        ]
+      },
+      {
+        "group": "Отзывчивый дизайн",
+        "skills": [
+          {
+            "skill": "Отзывчивый Дизайн",
+            "level": "Base",
+            "priority": "Normal"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "block": "JavaScript",
+    "groups": [
+      {
+        "group": "CSS",
+        "skills": [
+          {
+            "skill": "Repain/Reflow",
+            "level": "Strong",
+            "priority": "Advanced"
+          }
+        ]
+      },
+      {
+        "group": "Переменные",
+        "skills": [
+          {
+            "skill": "Var, Let, Const",
+            "level": "Base",
+            "priority": "Required"
+          }
+        ]
+      },
+      {
+        "group": "Область видимости",
+        "skills": [
+          {
+            "skill": "Поднятие",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Глобальная видимость",
+            "level": "Good",
+            "priority": "Required"
+          },
+          {
+            "skill": "Блочная видимость",
+            "level": "Good",
+            "priority": "Required"
+          },
+          {
+            "skill": "Функциональная видимость",
+            "level": "Base",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Типы",
+        "skills": [
+          {
+            "skill": "Примитивы",
+            "level": "Base",
+            "priority": "Required"
+          }
+        ]
+      },
+      {
+        "group": "Типы/Объекты",
+        "skills": [
+          {
+            "skill": "Объекты",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Прототипное наследование",
+            "level": "Strong",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Преобразование типов",
+            "level": "Base",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Структура Данных",
+        "skills": [
+          {
+            "skill": "Структура данных",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Коллекции с ключами",
+            "level": "Base",
+            "priority": "Normal"
+          },
+          {
+            "skill": "JSON",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Массив",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Типизированный массив",
+            "level": "Strong",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Map/Set",
+        "skills": [
+          {
+            "skill": "Map, Set",
+            "level": "Base",
+            "priority": "Normal"
+          },
+          {
+            "skill": "WeakMap, WeakSet",
+            "level": "Strong",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "События",
+        "skills": [
+          {
+            "skill": "Event",
+            "level": "Good",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Операторы сравнения",
+        "skills": [
+          {
+            "skill": "Операторы == и ===",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Оператор Objest.is",
+            "level": "Good",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Интерации и циклы",
+        "skills": [
+          {
+            "skill": "for, while, do while",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "break/continue, for... of, for... in",
+            "level": "Base",
+            "priority": "Required"
+          }
+        ]
+      },
+      {
+        "group": "Контроль состояний",
+        "skills": [
+          {
+            "skill": "if... else, switch",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Инструкция throw",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "try/catch/finnaly",
+            "level": "Base",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Выражения и операторы",
+        "skills": [
+          {
+            "skill": "Тернарный оператор ?:",
+            "level": "Base",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Оператор typeof",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Приоритет операторов",
+            "level": "Strong",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Оператор расширения",
+            "level": "Good",
+            "priority": "Required"
+          }
+        ]
+      },
+      {
+        "group": "Виды операторов",
+        "skills": [
+          {
+            "skill": "Арифметические операторы",
+            "level": "Base",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Битовые (поразрядные) операторы",
+            "level": "Expert",
+            "priority": "Advanced"
+          },
+          {
+            "skill": "Логические операторы",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Строковые операторы",
+            "level": "Base",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Функция",
+        "skills": [
+          {
+            "skill": "Параметры функции",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Стрелочная функция",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "IIFE",
+            "level": "Base",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Стек вызовов",
+            "level": "Good",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Лексическое окружение",
+        "skills": [
+          {
+            "skill": "Рекурсия",
+            "level": "Good",
+            "priority": "Required"
+          },
+          {
+            "skill": "Лексическое окружение",
+            "level": "Strong",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Замыкание",
+            "level": "Base",
+            "priority": "Required"
+          }
+        ]
+      },
+      {
+        "group": "this",
+        "skills": [
+          {
+            "skill": "call, apply, bind",
+            "level": "Good",
+            "priority": "Required"
+          },
+          {
+            "skill": "this в методах и функция",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "this в обработчиках событий",
+            "level": "Strong",
+            "priority": "Normal"
+          },
+          {
+            "skill": "this в стрелочной функции",
+            "level": "Base",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Асинхронный JS",
+        "skills": [
+          {
+            "skill": "Callback",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "SetTimeout, SetInterval",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "EventLoop",
+            "level": "Base",
+            "priority": "Required"
+          }
+        ]
+      },
+      {
+        "group": "Promise",
+        "skills": [
+          {
+            "skill": "Promise",
+            "level": "Good",
+            "priority": "Required"
+          },
+          {
+            "skill": "async/await",
+            "level": "Base",
+            "priority": "Required"
+          }
+        ]
+      },
+      {
+        "group": "Работа запросами",
+        "skills": [
+          {
+            "skill": "XHR",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Fetch",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Socket",
+            "level": "Strong",
+            "priority": "Normal"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "block": "TypeScript",
+    "groups": [
+      {
+        "group": "Работа запросами",
+        "skills": [
+          {
+            "skill": "Socket",
+            "level": "Strong",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Типы",
+        "skills": [
+          {
+            "skill": "Объекты типов: enum, interface, class, array",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Утверждения типов as [type]",
+            "level": "Good",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Не определенные",
+        "skills": [
+          {
+            "skill": "any, unknow, never",
+            "level": "Base",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Защита типов",
+        "skills": [
+          {
+            "skill": "instanceof, typeof",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Операторы сравнения switch, if/else",
+            "level": "Base",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Функции",
+        "skills": [
+          {
+            "skill": "Типизация функции",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Перезагрузка функции",
+            "level": "Strong",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Generic",
+        "skills": [
+          {
+            "skill": "Обобщенные типы <T>",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Наследование (ограничение)",
+            "level": "Good",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Утилиты",
+        "skills": [
+          {
+            "skill": "Объектные: Partial, Required, Readonly, Record, Pick, Omit",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Объеденяющие: Exclude, Extract, NonNullable ",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Функциональные: Parameters, ReturnType",
+            "level": "Expert",
+            "priority": "Normal"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "block": "React",
+    "groups": [
+      {
+        "group": "Утилиты",
+        "skills": [
+          {
+            "skill": "Функциональные: Parameters, ReturnType",
+            "level": "Expert",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Компоненты",
+        "skills": [
+          {
+            "skill": "Функциональный компонент",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "JSX",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Props и State",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Отрисовка состояний",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Составление композиций",
+            "level": "Good",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Отрисовка",
+        "skills": [
+          {
+            "skill": "Жизненный цикл компонента",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Списки и ключи",
+            "level": "Base",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Передача props",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Обработка событий",
+            "level": "Base",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Refs",
+        "skills": [
+          {
+            "skill": "Refs",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Хранение между рендерами",
+            "level": "Good",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Паттерны",
+        "skills": [
+          {
+            "skill": "HOC",
+            "level": "Strong",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Композиция",
+            "level": "Strong",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Hooks",
+        "skills": [
+          {
+            "skill": "Базовые: useState, useEffect",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Дополнительные: useMemo, useRef, useCallback, useContext, useReduce",
+            "level": "Good",
+            "priority": "Required"
+          },
+          {
+            "skill": "Собственные (самописные)",
+            "level": "Strong",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Routers",
+        "skills": [
+          {
+            "skill": "React Router",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Tanstak",
+            "level": "Good",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Управление состоянием",
+        "skills": [
+          {
+            "skill": "Redux ToolKit",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "MobX",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Context",
+            "level": "Good",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Работа с CSS",
+        "skills": [
+          {
+            "skill": "CSS Module",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Tailwind CSS",
+            "level": "Good",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Библиотека компонентов",
+        "skills": [
+          {
+            "skill": "Библиотеки компонентов: Material UI, Chakra UI, Ant e.t.c",
+            "level": "Good",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Работа с запросами",
+        "skills": [
+          {
+            "skill": "Axios",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "RTK-query",
+            "level": "Strong",
+            "priority": "Normal"
+          },
+          {
+            "skill": "react-query",
+            "level": "Strong",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Apollo",
+            "level": "Strong",
+            "priority": "Advanced"
+          },
+          {
+            "skill": "Relay",
+            "level": "Expert",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Формы",
+        "skills": [
+          {
+            "skill": "React Hook Form",
+            "level": "Strong",
+            "priority": "Advanced"
+          },
+          {
+            "skill": "Formik",
+            "level": "Strong",
+            "priority": "Advanced"
+          }
+        ]
+      },
+      {
+        "group": "Тесты",
+        "skills": [
+          {
+            "skill": "Cypress",
+            "level": "Strong",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Playwright",
+            "level": "Strong",
+            "priority": "Normal"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "block": "NodeJS",
+    "groups": [
+      {
+        "group": "Тесты",
+        "skills": [
+          {
+            "skill": "Playwright",
+            "level": "Strong",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "System",
+        "skills": [
+          {
+            "skill": "Buffer",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Files",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "__filename",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "__dirname",
+            "level": "Base",
+            "priority": "Required"
+          }
+        ]
+      },
+      {
+        "group": "Process",
+        "skills": [
+          {
+            "skill": "env",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "stdin / stdout",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Graceful Shutdown (signals)",
+            "level": "Good",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Async",
+        "skills": [
+          {
+            "skill": "EventEmitter",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Timers",
+            "level": "Good",
+            "priority": "Required"
+          },
+          {
+            "skill": "queueMicrotask",
+            "level": "Expert",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Eventloop",
+            "level": "Base",
+            "priority": "Required"
+          }
+        ]
+      },
+      {
+        "group": "Streams",
+        "skills": [
+          {
+            "skill": "Writable stream",
+            "level": "Strong",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Readable stream",
+            "level": "Strong",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Http(s)",
+        "skills": [
+          {
+            "skill": "Отличия http / https / tcp / upd",
+            "level": "Base",
+            "priority": "Normal"
+          },
+          {
+            "skill": "http.get",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "http.createServer",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "axios",
+            "level": "Good",
+            "priority": "Required"
+          },
+          {
+            "skill": "GraphQL",
+            "level": "Strong",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Debug",
+        "skills": [
+          {
+            "skill": "Memory leak",
+            "level": "Expert",
+            "priority": "Normal"
+          },
+          {
+            "skill": "--inspect",
+            "level": "Strong",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Threds",
+        "skills": [
+          {
+            "skill": "Child_process",
+            "level": "Expert",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Cluster",
+            "level": "Expert",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Worker Threads",
+            "level": "Expert",
+            "priority": "Normal"
+          }
+        ]
+      },
+      {
+        "group": "Servers",
+        "skills": [
+          {
+            "skill": "REST API",
+            "level": "Good",
+            "priority": "Required"
+          },
+          {
+            "skill": "BFF",
+            "level": "Good",
+            "priority": "Required"
+          },
+          {
+            "skill": "SSR",
+            "level": "Strong",
+            "priority": "Normal"
+          },
+          {
+            "skill": "WebSockets",
+            "level": "Expert",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Apollo",
+            "level": "Good",
+            "priority": "Advanced"
+          }
+        ]
+      },
+      {
+        "group": "frameworks",
+        "skills": [
+          {
+            "skill": "NestJS",
+            "level": "Good",
+            "priority": "Advanced"
+          },
+          {
+            "skill": "ExpressJS",
+            "level": "Good",
+            "priority": "Required"
+          }
+        ]
+      },
+      {
+        "group": "Databases",
+        "skills": [
+          {
+            "skill": "select / join / conditions",
+            "level": "Base",
+            "priority": "Required"
+          },
+          {
+            "skill": "Sequelize",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Mongo",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "TypeORM",
+            "level": "Strong",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Prisma",
+            "level": "Strong",
+            "priority": "Advanced"
+          }
+        ]
+      },
+      {
+        "group": "Architecture",
+        "skills": [
+          {
+            "skill": "JWT",
+            "level": "Strong",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Basic",
+            "level": "Good",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Caching",
+            "level": "Strong",
+            "priority": "Normal"
+          },
+          {
+            "skill": "redis",
+            "level": "Strong",
+            "priority": "Normal"
+          },
+          {
+            "skill": "Queue",
+            "level": "Expert",
+            "priority": "Advanced"
+          },
+          {
+            "skill": "Rabbit",
+            "level": "Strong",
+            "priority": "Advanced"
+          },
+          {
+            "skill": "Kafka",
+            "level": "Advanced",
+            "priority": "Normal"
+          }
+        ]
+      }
+    ]
+  }
+]

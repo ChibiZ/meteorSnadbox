@@ -1,9 +1,10 @@
 export class RoadMapApi {
   async update({ id, data }) {
+    console.log('upd', id, data);
     return Meteor.callAsync('roadmap.update', { _id: id, data });
   }
 
-  async create({ data }) {
+  async create(data) {
     return Meteor.callAsync('roadmap.insert', data);
   }
 
@@ -12,6 +13,10 @@ export class RoadMapApi {
   }
   async getById(id) {
     return Meteor.callAsync('roadmap.getById', { id });
+  }
+
+  async getSchemeWithProgress({ id, userId }) {
+    return Meteor.callAsync('roadmap.getSchemeWithProgress', { id, userId });
   }
 }
 

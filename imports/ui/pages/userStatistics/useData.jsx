@@ -1,16 +1,11 @@
 import { useParams, useSearchParams } from 'react-router-dom';
-import { roadMapApi, userProgressApi } from '../../api';
-import {
-  getTreeFromFlowObject,
-  mergeTreeWithUserProgress,
-  normalizeTreeData,
-} from './components/TaskTree/utils';
+import { roadMapApi } from '/imports/ui/api';
 import React from 'react';
 import { useToast } from '@chakra-ui/react';
 import { getStat } from '../roadmap/components/RoadMap/utils';
 
 export function useData() {
-  const { id } = useParams();
+  const { id: userId } = useParams();
   const [searchParams] = useSearchParams();
   const toast = useToast();
 
@@ -28,28 +23,20 @@ export function useData() {
           throw new Error(`Необходимо передать значение roadmapId.`);
         }
 
-        const roadMap = await roadMapApi.getById(roadmapId);
-        if (!roadMap) {
+        const roadmap = await roadMapApi.getSchemeWithProgress({
+          id: roadmapId,
+          userId,
+        });
+
+        if (!roadmap) {
           setLoading(false);
           return;
         }
 
-        const userProgress = await userProgressApi.getUserProgressById({
-          id,
-          roadmapId,
-        });
-
-        const tree = getTreeFromFlowObject(roadMap.nodes, roadMap.edges);
-        const normalizedTree = normalizeTreeData(tree, roadMap.nodes); // remove flow data
-        const mergedTree = mergeTreeWithUserProgress(
-          normalizedTree,
-          userProgress,
-        );
-
-        const stat = getStat(roadMap.nodes, userProgress);
+        const stat = getStat(roadmap.rawScheme);
 
         setUserStat(stat);
-        setData(mergedTree);
+        setData(roadmap.rawScheme);
 
         setLoading(false);
       } catch (error) {

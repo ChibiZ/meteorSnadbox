@@ -1,8 +1,8 @@
 import React from 'react';
 
+import { usePermissions } from '/imports/ui/hooks/usePermissions';
 import { RoadMap } from './components/RoadMap';
 import { RoadMapContextProvider } from './RoadMapContext';
-import { usePermissions } from '../../hooks/usePermissions';
 
 export const RoadMapPage = () => {
   const { isAdmin } = usePermissions();

@@ -1,4 +1,6 @@
-export type NodeKind = 'topic' | 'subtopic';
+import { CSSProperties } from 'react';
+
+export type NodeKind = 'block' | 'group' | 'skill';
 
 export type Node = {
   id: string;
@@ -8,6 +10,7 @@ export type Node = {
   data: {
     label: string;
     kind: NodeKind;
+    style?: CSSProperties;
   };
 
   position: {
