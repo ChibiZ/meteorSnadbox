@@ -47,6 +47,7 @@ export const InfoNodePage = React.memo(({ isOpen, onClose, node }) => {
   const { data, isLoading: isLoadingContent } = useContent({ id: node.id });
   const currentStatus = roadmap.rawScheme?.skills?.[node.id]?.status;
 
+  console.log(data);
   const onSelectStatus = async (status) => {
     if (currentStatus === status) return;
 

@@ -61,10 +61,11 @@ main {
 
 .node.skill {
   background-color: var(--subtopic-color);
-  &:hover {
-   filter: brightness(.8);
-  }
 }
+
+.node.skill:hover {
+   filter: brightness(.8);
+ }
 
 .node.Done {
   text-decoration: line-through;
