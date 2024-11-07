@@ -1,29 +1,31 @@
 import React from 'react';
 
+import { ArrowDownIcon } from '@chakra-ui/icons';
 import {
+  Button,
+  ButtonGroup,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
-  ButtonGroup,
-  Button,
   DrawerOverlay,
+  Heading,
   Menu,
   MenuButton,
-  MenuList,
   MenuItem,
-  Heading,
-  Text,
+  MenuList,
   Spinner,
+  Text,
 } from '@chakra-ui/react';
-import { ArrowDownIcon } from '@chakra-ui/icons';
+import { Loading } from '../../../../components/loading';
+import { AdminAIEditor } from '../AdminAIEditor';
 import { StatusIndicator } from './StatusIndicator';
 import './styles.css';
-import { useUserProgressApi } from '/imports/ui/pages/roadmap/useUserProgressApi';
-import { useRoadMapContext } from '/imports/ui/pages/roadmap//RoadMapContext';
-import { TaskStatus } from '/imports/ui/shared';
 import { useContent } from './useContent';
-import { Loading } from '../../../../components/loading';
+import { usePermissions } from '/imports/ui/hooks/usePermissions';
+import { useRoadMapContext } from '/imports/ui/pages/roadmap//RoadMapContext';
+import { useUserProgressApi } from '/imports/ui/pages/roadmap/useUserProgressApi';
+import { TaskStatus } from '/imports/ui/shared';
 
 const TASK_STATUSES = [
   {
@@ -41,13 +43,14 @@ const TASK_STATUSES = [
   },
 ];
 
-export const InfoNodePage = React.memo(({ isOpen, onClose, node }) => {
+export const InfoNodePage = ({ isOpen, onClose, node, setNodes }) => {
+  const { isAdmin } = usePermissions();
   const { updateTask, isLoading: isUpdatingStatusTask } = useUserProgressApi();
   const { roadmap, getRoadmap } = useRoadMapContext();
   const { data, isLoading: isLoadingContent } = useContent({ id: node.id });
   const currentStatus = roadmap.rawScheme?.skills?.[node.id]?.status;
 
-  console.log(data);
+  // console.log(node);
   const onSelectStatus = async (status) => {
     if (currentStatus === status) return;
 
@@ -106,12 +109,22 @@ export const InfoNodePage = React.memo(({ isOpen, onClose, node }) => {
             ) : (
               <>
                 <Heading mb={2}>{data?.title ?? node.data.label}</Heading>
-                <Text>{data?.text ?? 'Пока ничего нет...'}</Text>
+                <Text>{node.data?.text ?? 'Пока ничего нет...'}</Text>
+                {/* <MarkdownPreview
+                  source={node.data?.text ?? 'Пока ничего нет...'}
+                /> */}
               </>
+            )}
+            {isAdmin && (
+              <AdminAIEditor
+                text={node.data?.text}
+                nodeId={node.id}
+                setNodes={setNodes}
+              />
             )}
           </div>
         </DrawerBody>
       </DrawerContent>
     </Drawer>
   );
-});
+};

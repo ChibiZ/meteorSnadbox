@@ -1,28 +1,27 @@
-import { useCallback } from 'react';
-import { Button } from '@chakra-ui/react';
 import { CheckIcon, InfoIcon } from '@chakra-ui/icons';
+import { Button } from '@chakra-ui/react';
 import {
-  ReactFlow,
-  Controls,
-  useNodesState,
-  useEdgesState,
   addEdge,
+  Controls,
+  ReactFlow,
+  useEdgesState,
+  useNodesState,
 } from '@xyflow/react';
-import React from 'react';
 import '@xyflow/react/dist/style.css';
-import { InfoNodePage } from '../InfoNodePage';
+import React, { useCallback } from 'react';
 import { ImportRoadmap } from '../ImportRoadmap';
+import { InfoNodePage } from '../InfoNodePage';
 
-import { useRoadmapApi } from '/imports/ui/pages/roadmap/useRoadmapApi';
-import { SUB_TOPIC_EDGE_STYLES } from '/imports/ui/pages/roadmap/tree/consts';
-import { useRoadMapContext } from '/imports/ui/pages/roadmap/RoadMapContext';
-import { isNodeTopic, prepareRoadmapToSave, setStatusForNodes } from './utils';
+import { Link } from 'react-router-dom';
 import { TrackProgress } from './components/TrackProgress';
 import { DEFAULT_VIEWPORT, edgeTypes, nodeTypes } from './consts';
-import { Link } from 'react-router-dom';
-import { routes } from '/imports/ui/routes/routes';
-import { createFlowDataFromJSON } from '/imports/ui/pages/roadmap/tree/createFlowDataFromJSON';
+import { isNodeTopic, prepareRoadmapToSave, setStatusForNodes } from './utils';
 import { Loading } from '/imports/ui/components/loading';
+import { useRoadMapContext } from '/imports/ui/pages/roadmap/RoadMapContext';
+import { SUB_TOPIC_EDGE_STYLES } from '/imports/ui/pages/roadmap/tree/consts';
+import { createFlowDataFromJSON } from '/imports/ui/pages/roadmap/tree/createFlowDataFromJSON';
+import { useRoadmapApi } from '/imports/ui/pages/roadmap/useRoadmapApi';
+import { routes } from '/imports/ui/routes/routes';
 
 export const RoadMap = React.memo(({ isReadOnly }) => {
   const {
@@ -39,6 +38,7 @@ export const RoadMap = React.memo(({ isReadOnly }) => {
   const [nodes, setNodes, onNodesChange] = useNodesState(
     setStatusForNodes(roadmap?.flowData.nodes, roadmap?.rawScheme),
   );
+  console.log(nodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState([
     ...(roadmap?.flowData?.edges ?? []),
   ]);
@@ -80,7 +80,6 @@ export const RoadMap = React.memo(({ isReadOnly }) => {
 
     const flow = rfInstance.toObject();
     const prepared = prepareRoadmapToSave(flow);
-
     await update(roadmap.id, prepared);
 
     setChanges(false);
@@ -129,6 +128,7 @@ export const RoadMap = React.memo(({ isReadOnly }) => {
           isOpen={true}
           onClose={onCloseNodePage}
           node={selectedNode}
+          setNodes={setNodes}
         />
       )}
 

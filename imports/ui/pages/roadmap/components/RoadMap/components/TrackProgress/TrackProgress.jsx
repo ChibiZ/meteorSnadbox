@@ -1,9 +1,9 @@
-import React from 'react';
 import { Badge } from '@chakra-ui/react';
+import React from 'react';
 
-import { useRoadMapContext } from '/imports/ui/pages/roadmap/RoadMapContext';
-import { useTrackProgress } from './useTrackProgress';
 import './styles.module.css';
+import { useTrackProgress } from './useTrackProgress';
+import { useRoadMapContext } from '/imports/ui/pages/roadmap/RoadMapContext';
 
 export const TrackProgress = React.memo(() => {
   const { roadmap } = useRoadMapContext();

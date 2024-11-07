@@ -1,0 +1,19 @@
+.admin-ai-editor {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.admin-ai-editor .ck-editor__editable {
+  min-height: 400px;
+}
+
+.admin-ai-editor .chakra-heading {
+  margin-bottom: 10px;
+}
+
+.admin-ai-editor > p {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
