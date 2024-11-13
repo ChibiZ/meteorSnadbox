@@ -109,10 +109,9 @@ export const InfoNodePage = ({ isOpen, onClose, node, setNodes }) => {
             ) : (
               <>
                 <Heading mb={2}>{data?.title ?? node.data.label}</Heading>
-                <Text>{node.data?.text ?? 'Пока ничего нет...'}</Text>
-                {/* <MarkdownPreview
-                  source={node.data?.text ?? 'Пока ничего нет...'}
-                /> */}
+                {!node.data?.text && <Text>Пока ничего нет...</Text>}
+                {/* {node.data?.text && <Text>{node.data.text}</Text>} */}
+                {node.data?.text && <div dangerouslySetInnerHTML={{__html: node.data.text}} />}
               </>
             )}
             {isAdmin && (

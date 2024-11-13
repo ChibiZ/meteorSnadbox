@@ -1,5 +1,6 @@
 import { Button, Flex, Heading, Input } from '@chakra-ui/react';
 import { CKEditor, CKEditorContext } from '@ckeditor/ckeditor5-react';
+import { marked } from 'marked';
 import {
   Bold,
   ClassicEditor,
@@ -21,8 +22,9 @@ import { usePermissions } from '/imports/ui/hooks/usePermissions';
 import { useRoadMapContext } from '/imports/ui/pages/roadmap/RoadMapContext';
 import { useRoadmapApi } from '/imports/ui/pages/roadmap/useRoadmapApi';
 
+
 export const AdminAIEditor = ({ text, nodeId, setNodes }) => {
-  const [promt, setPromt] = useState('');
+  const [promt, setPromt] = useState('Дай справку по CSS Селекторам');
   const [answer, setAnswer] = useState(
     text || '<p>Тут можно будет отредактировать ответ</p>',
   );
@@ -38,7 +40,7 @@ export const AdminAIEditor = ({ text, nodeId, setNodes }) => {
     setPendingAI(true);
     const data = await fetchData(promt, url);
     if (data.candidates[0]?.content?.parts[0]?.text) {
-      setAnswer(data.candidates[0]?.content?.parts[0]?.text);
+      setAnswer(marked(data.candidates[0]?.content?.parts[0]?.text));
     }
     setPendingAI(false);
   };
@@ -54,7 +56,6 @@ export const AdminAIEditor = ({ text, nodeId, setNodes }) => {
     await update(roadmap.id, prepared);
     setNodes(newNodes);
   };
-  // console.log(text);
   // const { updateTask, isLoading: isUpdatingStatusTask } = useUserProgressApi();
   // const { roadmap, getRoadmap } = useRoadMapContext();
   // const { data, isLoading: isLoadingContent } = useContent({ id: node.id });
@@ -101,7 +102,7 @@ export const AdminAIEditor = ({ text, nodeId, setNodes }) => {
               Bold,
               Italic,
               Paragraph,
-              //Markdown,
+              // Markdown,
               HtmlEmbed,
               SourceEditing,
             ],
@@ -115,6 +116,8 @@ export const AdminAIEditor = ({ text, nodeId, setNodes }) => {
               'htmlEmbed',
               'sourceEditing',
             ],
+            output: 'html',
+            fullPage: true,
           }}
           data={answer}
           contextItemMetadata={{
@@ -125,7 +128,7 @@ export const AdminAIEditor = ({ text, nodeId, setNodes }) => {
           //   setEditor(editor);
           // }}
           onChange={(_, editor) => {
-            setAnswer(editor.getData());
+            setAnswer(marked(editor.getData()));
           }}
         />
         <Button
