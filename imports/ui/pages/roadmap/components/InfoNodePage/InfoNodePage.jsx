@@ -43,14 +43,19 @@ const TASK_STATUSES = [
   },
 ];
 
-export const InfoNodePage = ({ isOpen, onClose, node, setNodes }) => {
+export const InfoNodePage = ({
+  isOpen,
+  onClose,
+  node,
+  setNodes,
+  nodes,
+  edges,
+}) => {
   const { isAdmin } = usePermissions();
   const { updateTask, isLoading: isUpdatingStatusTask } = useUserProgressApi();
   const { roadmap, getRoadmap } = useRoadMapContext();
   const { data, isLoading: isLoadingContent } = useContent({ id: node.id });
   const currentStatus = roadmap.rawScheme?.skills?.[node.id]?.status;
-
-  // console.log(node);
   const onSelectStatus = async (status) => {
     if (currentStatus === status) return;
 
@@ -111,14 +116,19 @@ export const InfoNodePage = ({ isOpen, onClose, node, setNodes }) => {
                 <Heading mb={2}>{data?.title ?? node.data.label}</Heading>
                 {!node.data?.text && <Text>Пока ничего нет...</Text>}
                 {/* {node.data?.text && <Text>{node.data.text}</Text>} */}
-                {node.data?.text && <div dangerouslySetInnerHTML={{__html: node.data.text}} />}
+                {node.data?.text && (
+                  <div dangerouslySetInnerHTML={{ __html: node.data.text }} />
+                )}
               </>
             )}
             {isAdmin && (
               <AdminAIEditor
                 text={node.data?.text}
                 nodeId={node.id}
+                nodeLabel={data?.title ?? node.data.label}
                 setNodes={setNodes}
+                nodes={nodes}
+                edges={edges}
               />
             )}
           </div>

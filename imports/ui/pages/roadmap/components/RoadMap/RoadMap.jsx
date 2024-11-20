@@ -38,7 +38,6 @@ export const RoadMap = React.memo(({ isReadOnly }) => {
   const [nodes, setNodes, onNodesChange] = useNodesState(
     setStatusForNodes(roadmap?.flowData.nodes, roadmap?.rawScheme),
   );
-  console.log(nodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState([
     ...(roadmap?.flowData?.edges ?? []),
   ]);
@@ -128,6 +127,8 @@ export const RoadMap = React.memo(({ isReadOnly }) => {
           isOpen={true}
           onClose={onCloseNodePage}
           node={selectedNode}
+          nodes={nodes}
+          edges={edges}
           setNodes={setNodes}
         />
       )}

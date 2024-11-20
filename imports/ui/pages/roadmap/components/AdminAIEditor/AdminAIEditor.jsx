@@ -1,6 +1,5 @@
 import { Button, Flex, Heading, Input } from '@chakra-ui/react';
 import { CKEditor, CKEditorContext } from '@ckeditor/ckeditor5-react';
-import { marked } from 'marked';
 import {
   Bold,
   ClassicEditor,
@@ -13,18 +12,30 @@ import {
   Paragraph,
   SourceEditing,
 } from 'ckeditor5';
+import { marked } from 'marked';
 import React, { useState } from 'react';
 import { prepareRoadmapToSave } from '../RoadMap/utils';
 import { url } from './const';
-import { fetchData } from './helpers';
+import { fetchData, findParentNodeName, makeDefaultPrompt } from './helpers';
 import './styles.css';
 import { usePermissions } from '/imports/ui/hooks/usePermissions';
 import { useRoadMapContext } from '/imports/ui/pages/roadmap/RoadMapContext';
 import { useRoadmapApi } from '/imports/ui/pages/roadmap/useRoadmapApi';
 
-
-export const AdminAIEditor = ({ text, nodeId, setNodes }) => {
-  const [promt, setPromt] = useState('Дай справку по CSS Селекторам');
+export const AdminAIEditor = ({
+  text,
+  nodeId,
+  nodeLabel,
+  setNodes,
+  nodes,
+  edges,
+}) => {
+  const [promtKeyword] = useState(
+    `${findParentNodeName(nodes, nodeId, edges)} ${nodeLabel}`,
+  );
+  const [promt, setPromt] = useState(
+    makeDefaultPrompt(nodeLabel, findParentNodeName(nodes, nodeId, edges)),
+  );
   const [answer, setAnswer] = useState(
     text || '<p>Тут можно будет отредактировать ответ</p>',
   );
@@ -74,7 +85,7 @@ export const AdminAIEditor = ({ text, nodeId, setNodes }) => {
         }}
       >
         <Heading mb={1}>Admin Panel</Heading>
-        <p>Promt IN</p>
+        <p>Promt IN (keyword: {promtKeyword})</p>
         <Flex gap={8}>
           <Input
             placeholder="Enter your promt"
