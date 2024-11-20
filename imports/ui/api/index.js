@@ -19,6 +19,15 @@ export class RoadMapApi {
   }
 }
 
+export class AIApi {
+  async getTemplate() {
+    return Meteor.callAsync('aiTemplate.get');
+  }
+  async addTemplate(template) {
+    return Meteor.callAsync('aiTemplate.insert', template);
+  }
+}
+
 export class UserProgress {
   async resetTask({ id, roadmapId }) {
     return Meteor.callAsync('userProgress.reset', {
@@ -78,6 +87,7 @@ class SkillContentApi {
 
 export const skillContentApi = new SkillContentApi();
 export const roadMapApi = new RoadMapApi();
+export const aiApi = new AIApi();
 export const userProgressApi = new UserProgress();
 
 export const usersApi = new UsersApi();

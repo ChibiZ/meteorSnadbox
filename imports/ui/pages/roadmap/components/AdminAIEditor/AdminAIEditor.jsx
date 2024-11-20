@@ -1,5 +1,8 @@
-import { Button, Flex, Heading, Input } from '@chakra-ui/react';
+import { Button, Flex, Heading, Textarea } from '@chakra-ui/react';
 import { CKEditor, CKEditorContext } from '@ckeditor/ckeditor5-react';
+import { FiEdit } from '@react-icons/all-files/fi/FiEdit';
+import { ImCancelCircle } from '@react-icons/all-files/im/ImCancelCircle';
+import { RiSave3Fill } from '@react-icons/all-files/ri/RiSave3Fill';
 import {
   Bold,
   ClassicEditor,
@@ -16,8 +19,15 @@ import { marked } from 'marked';
 import React, { useState } from 'react';
 import { prepareRoadmapToSave } from '../RoadMap/utils';
 import { url } from './const';
-import { fetchData, findParentNodeName, makeDefaultPrompt } from './helpers';
+import {
+  fetchData,
+  findParentNodeName,
+  getLastElement,
+  makeDefaultPrompt,
+  makePromptFromTemplate,
+} from './helpers';
 import './styles.css';
+import { aiApi } from '/imports/ui/api';
 import { usePermissions } from '/imports/ui/hooks/usePermissions';
 import { useRoadMapContext } from '/imports/ui/pages/roadmap/RoadMapContext';
 import { useRoadmapApi } from '/imports/ui/pages/roadmap/useRoadmapApi';
@@ -36,10 +46,16 @@ export const AdminAIEditor = ({
   const [promt, setPromt] = useState(
     makeDefaultPrompt(nodeLabel, findParentNodeName(nodes, nodeId, edges)),
   );
+  const [prevPromt, setPrevPromt] = useState('');
   const [answer, setAnswer] = useState(
     text || '<p>Тут можно будет отредактировать ответ</p>',
   );
   const [pendingAI, setPendingAI] = useState(false);
+  const [loadingAITemplate, setLoadingAITemplate] = useState(false);
+  const [isTemplateEditing, setIsTemplateEditing] = useState(false);
+  const [template, setTemplate] = useState(
+    'Я провожу опрос для frontend разработчиков, где они по ключевому слову должны понять знают ли они данную технологию или нет. Для этого мне нужен справочный материал, из которого будет понятно, о чём спрашивают. Помоги мне создать такой. Ключевое слово "parentNodeLabel nodeLabel". В моём опросе контент будет хорошо выглядеть, если дать краткое определение одним параграфом, дальше дать 2-4 примера, и в конце дать перечисление связанных ключевых терминов.',
+  );
   // const [editor, setEditor] = React.useState(null);
   const { roadmap } = useRoadMapContext();
   const { update, isLoading } = useRoadmapApi();
@@ -49,9 +65,13 @@ export const AdminAIEditor = ({
   }
   const handleAsk = async () => {
     setPendingAI(true);
-    const data = await fetchData(promt, url);
-    if (data.candidates[0]?.content?.parts[0]?.text) {
-      setAnswer(marked(data.candidates[0]?.content?.parts[0]?.text));
+    try {
+      const data = await fetchData(promt, url);
+      if (data.candidates[0]?.content?.parts[0]?.text) {
+        setAnswer(marked(data.candidates[0]?.content?.parts[0]?.text));
+      }
+    } catch (e) {
+      console.error(e);
     }
     setPendingAI(false);
   };
@@ -67,27 +87,78 @@ export const AdminAIEditor = ({
     await update(roadmap.id, prepared);
     setNodes(newNodes);
   };
+  const handleEditTemplate = () => {
+    setIsTemplateEditing(true);
+    setPrevPromt(promt);
+    setPromt(template);
+  };
+  const handleCancelEditTemplate = () => {
+    setIsTemplateEditing(false);
+    setPromt(prevPromt);
+  };
+  const handleSaveTemplate = async () => {
+    try {
+      await aiApi.addTemplate(promt);
+      setTemplate(promt);
+      setPromt(
+        makePromptFromTemplate(
+          promt,
+          nodeLabel,
+          findParentNodeName(nodes, nodeId, edges),
+        ),
+      );
+    } catch (e) {
+      console.error(e);
+    }
+    setIsTemplateEditing(false);
+  };
+  const getData = async () => {
+    try {
+      setLoadingAITemplate(true);
+      const serverTemplates = getLastElement(await aiApi.getTemplate());
+      console.log(serverTemplates);
+      if (!serverTemplates) {
+        await aiApi.addTemplate(template);
+      } else {
+        setTemplate(serverTemplates.template);
+        setPromt(
+          makePromptFromTemplate(
+            serverTemplates.template,
+            nodeLabel,
+            findParentNodeName(nodes, nodeId, edges),
+          ),
+        );
+      }
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoadingAITemplate(false);
+    }
+  };
   // const { updateTask, isLoading: isUpdatingStatusTask } = useUserProgressApi();
   // const { roadmap, getRoadmap } = useRoadMapContext();
   // const { data, isLoading: isLoadingContent } = useContent({ id: node.id });
   // const currentStatus = roadmap.rawScheme?.skills?.[node.id]?.status;
-
+  React.useEffect(() => {
+    console.log('load template');
+    getData();
+  }, []);
   return (
     <div className="admin-ai-editor">
       <CKEditorContext
         context={Context}
         contextWatchdog={ContextWatchdog}
         onChangeInitializedEditors={(editors) => {
-          console.info(
-            editors.editor1?.instance,
-            editors.editor1?.yourAdditionalData,
-          );
+          // console.info(
+          //   editors.editor1?.instance,
+          //   editors.editor1?.yourAdditionalData,
+          // );
         }}
       >
         <Heading mb={1}>Admin Panel</Heading>
         <p>Promt IN (keyword: {promtKeyword})</p>
         <Flex gap={8}>
-          <Input
+          <Textarea
             placeholder="Enter your promt"
             value={promt}
             onInput={(ev) => {
@@ -95,14 +166,36 @@ export const AdminAIEditor = ({
             }}
             autoFocus
             onSubmit={handleAsk}
+            style={{ minHeight: '200px' }}
           />
-          <Button
-            // loading={pendingAI}
-            loadingText="Asking..."
-            onClick={handleAsk}
+          <div
+            className="wrapper"
+            style={{ display: 'flex', gap: 8, flexDirection: 'column' }}
           >
-            {pendingAI ? 'Asking...' : 'Ask'}
-          </Button>
+            {!isTemplateEditing && (
+              <Button loadingText="Asking..." onClick={handleAsk}>
+                {pendingAI ? 'Asking...' : 'Ask'}
+              </Button>
+            )}
+            {!isTemplateEditing && (
+              <Button
+                onClick={handleEditTemplate}
+                leftIcon={<FiEdit />}
+              ></Button>
+            )}
+            {isTemplateEditing && (
+              <Button
+                onClick={handleSaveTemplate}
+                leftIcon={<RiSave3Fill />}
+              ></Button>
+            )}
+            {isTemplateEditing && (
+              <Button
+                onClick={handleCancelEditTemplate}
+                leftIcon={<ImCancelCircle />}
+              ></Button>
+            )}
+          </div>
         </Flex>
         <p>Promt OUT</p>
         <CKEditor
