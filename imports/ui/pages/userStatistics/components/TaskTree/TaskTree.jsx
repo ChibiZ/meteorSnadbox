@@ -76,7 +76,6 @@ export const TaskTree = React.memo(({ data }) => {
     );
   };
 
-  console.log(filteredTree);
   return (
     <Card my={2}>
       <CardBody>

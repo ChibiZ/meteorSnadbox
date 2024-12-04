@@ -14,6 +14,7 @@ import {
   ModalCloseButton,
 } from '@chakra-ui/react';
 import { parseJsonFile } from '/imports/ui/shared/parseJsonFile';
+
 const baseStyle = {
   flex: 1,
   display: 'flex',
@@ -42,9 +43,9 @@ const rejectStyle = {
   borderColor: '#ff1744',
 };
 
-export const ImportRoadmap = React.memo(({ onCreate }) => {
+export const ImportRoadmap = React.memo(({ onCreate, onEdit }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [value, setValue] = React.useState(null);
+  const [value, setValue] = React.useState();
 
   const onSaveRoadmap = () => {
     onCreate(value);
@@ -67,7 +68,7 @@ export const ImportRoadmap = React.memo(({ onCreate }) => {
         size={'sm'}
         colorScheme="green"
       >
-        Создать roadmap
+        Импорт из файла
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -116,8 +117,9 @@ export const ImportRoadmap = React.memo(({ onCreate }) => {
               colorScheme={'green'}
               onClick={onSaveRoadmap}
               isDisabled={value == null}
+              mx={2}
             >
-              Создать
+              Создать новый
             </Button>
           </ModalFooter>
         </ModalContent>

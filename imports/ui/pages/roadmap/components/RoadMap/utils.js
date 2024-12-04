@@ -5,6 +5,7 @@ export const prepareRoadmapToSave = (data) => {
     ...data,
     nodes: data.nodes.map((node) => {
       delete node.data.status;
+      delete node.hidden;
 
       return {
         ...node,
@@ -13,14 +14,19 @@ export const prepareRoadmapToSave = (data) => {
   };
 };
 
+const getStatus = (node, rawScheme) => {
+  if (node.data.kind === 'group') return rawScheme?.groups[node.id]?.status;
+
+  if (node.data.kind === 'skill') return rawScheme?.skills[node.id]?.status;
+};
+
 export const setStatusForNodes = (nodes, rawScheme) => {
   if (!nodes) return [];
 
   return nodes.map((node) => {
-    const copiedNode = { ...node };
+    const copiedNode = structuredClone(node);
 
-    const status =
-      rawScheme?.groups[node.id]?.status ?? rawScheme?.skills[node.id]?.status;
+    const status = getStatus(copiedNode, rawScheme);
 
     if (status) {
       copiedNode.data = {
@@ -30,20 +36,22 @@ export const setStatusForNodes = (nodes, rawScheme) => {
     }
 
     /// remove status from flow data
-    if (
-      node.data.kind === 'group' &&
-      !rawScheme?.groups[node.id].status &&
-      copiedNode.data.status
-    ) {
+    const groupStatusHasRemoved =
+      copiedNode.data.kind === 'group' &&
+      !rawScheme?.groups[copiedNode.id]?.status &&
+      copiedNode.data.status;
+
+    if (groupStatusHasRemoved) {
       delete copiedNode.data.status;
     }
-    /// remove status from flow data
 
-    if (
-      node.data.kind === 'skill' &&
-      !rawScheme?.skills[node.id].status &&
-      copiedNode.data.status
-    ) {
+    /// remove status from flow data
+    const skillStatusHasRemoved =
+      copiedNode.data.kind === 'skill' &&
+      !rawScheme?.skills[copiedNode.id]?.status &&
+      copiedNode.data.status;
+
+    if (skillStatusHasRemoved) {
       delete copiedNode.data.status;
     }
 
@@ -51,10 +59,9 @@ export const setStatusForNodes = (nodes, rawScheme) => {
   });
 };
 
-export const isNodeTopic = (node) =>
-  ['block', 'group'].includes(node.data.kind);
+export const isSkillNode = (node) => node.data.kind === 'skill';
 
-export const getTasks = (nodes) => nodes.filter((node) => !isNodeTopic(node));
+export const getTasks = (nodes) => nodes.filter((node) => isSkillNode(node));
 
 export const getStat = (rawScheme) => {
   if (!rawScheme) {
@@ -79,3 +86,35 @@ export const getStat = (rawScheme) => {
     percent,
   };
 };
+
+export const isBlock = (item) => 'block' in item;
+export const isGroup = (item) => 'group' in item;
+export const isSkill = (item) => 'skill' in item;
+
+export const getChildKey = (item) => {
+  if (isBlock(item)) return 'groups';
+  if (isGroup(item)) return 'skills';
+};
+export const getTitle = (item) => {
+  if (isBlock(item)) return item.block;
+  if (isGroup(item)) return item.group;
+
+  return item.skill;
+};
+
+export function getFlatDictFromTree(data, result = {}) {
+  for (const item of data) {
+    result[item.id] = {
+      ...item,
+      title: getTitle(item),
+    };
+
+    const childKey = getChildKey(item);
+
+    if (Array.isArray(item[childKey])) {
+      getFlatDictFromTree(item[childKey], result);
+    }
+  }
+
+  return result;
+}

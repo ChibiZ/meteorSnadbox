@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "target": "es5",
+    "module": "esNext",
+    "preserveSymlinks": true,
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "meteor/*": [
+        "node_modules/@types/meteor/*",
+        ".meteor/local/types/packages.d.ts"
+      ]
+    }
+  }
+}

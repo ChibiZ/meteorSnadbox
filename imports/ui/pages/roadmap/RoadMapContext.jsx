@@ -1,6 +1,6 @@
 import React from 'react';
 import { Loading } from '/imports/ui/components/loading';
-import { roadMapApi, userProgressApi } from '/imports/ui/api';
+import { roadMapApi } from '/imports/ui/api';
 
 export const RoadMapContext = React.createContext({});
 

@@ -11,3 +11,22 @@ export const Roles = {
 export const filterTasksByStatus = (userProgress, status) =>
   Object.values(userProgress ?? {}).filter((task) => task.status === status)
     ?.length ?? 0;
+
+export const LEVELS = [
+  {
+    id: 1,
+    name: 'Base',
+  },
+  {
+    id: 2,
+    name: 'Good',
+  },
+  {
+    id: 3,
+    name: 'Strong',
+  },
+  {
+    id: 4,
+    name: 'Expert',
+  },
+];

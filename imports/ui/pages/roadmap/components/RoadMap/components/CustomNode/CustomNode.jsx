@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { Handle, Position } from '@xyflow/react';
-
+import { ArrowUpIcon, ArrowDownIcon } from '@chakra-ui/icons';
+import { IconButton } from '@chakra-ui/react';
 export const CustomNode = memo(
   ({ data, isConnectable, draggable, ...props }) => {
     const style = draggable ? undefined : { opacity: 0 };
@@ -10,6 +11,31 @@ export const CustomNode = memo(
         className={`node ${data.kind} ${data.status ?? ''}`}
         style={data.style}
       >
+        {draggable && (
+          <>
+            <IconButton
+              icon={<ArrowUpIcon data-direction="up" />}
+              className="node-arrow node-arrow-up"
+              data-direction="up"
+            />
+            <IconButton
+              icon={<ArrowDownIcon data-direction="down" />}
+              className="node-arrow node-arrow-down"
+              data-direction="down"
+            />
+            <IconButton
+              icon={<ArrowUpIcon data-direction="left" />}
+              className="node-arrow node-arrow-left"
+              data-direction="left"
+            />
+            <IconButton
+              icon={<ArrowDownIcon data-direction="right" />}
+              className="node-arrow node-arrow-right"
+              data-direction="right"
+            />
+          </>
+        )}
+
         <div>{data.label}</div>
 
         <Handle

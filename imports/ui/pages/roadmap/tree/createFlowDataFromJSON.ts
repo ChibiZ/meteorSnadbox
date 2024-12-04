@@ -20,6 +20,8 @@ type GenNodeParams = {
   kind: Node['data']['kind'];
   id: string;
   color?: string;
+  level?: string;
+  priority?: string;
 };
 const generateNode = ({
   width,
@@ -28,6 +30,8 @@ const generateNode = ({
   kind,
   title,
   id,
+  level,
+  priority,
 }: GenNodeParams): Node => {
   return {
     id,
@@ -37,6 +41,8 @@ const generateNode = ({
     data: {
       label: title,
       kind,
+      level,
+      priority,
     },
 
     position: {
@@ -125,6 +131,8 @@ export const getNodes = (data: Scheme) => {
             x: skillX,
             y: skillY,
             kind: 'skill',
+            level: skill.level,
+            priority: skill.priority,
           }),
         );
 
@@ -316,7 +324,6 @@ type Skill = {
 type Group = {
   group: string;
   id: string;
-
   skills: Skill[];
 };
 type Block = {

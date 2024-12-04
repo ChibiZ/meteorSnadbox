@@ -1,0 +1,1411 @@
+[
+  {
+    "block": "CSS/HTML",
+    "groups": [
+      {
+        "group": "Базовый HTML",
+        "skills": [
+          {
+            "skill": "asasassСтруктура документа",
+            "level": "Base",
+            "priority": "Required",
+            "id": "0193x899-83df-7cc3-b562-1fc504729730"
+          },
+          {
+            "skill": "Структура документа",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b562-1fc504729730"
+          },
+          {
+            "skill": "Семантика HTML",
+            "level": "Good",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b562-21e43ea34a28"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b562-16520c9eb5dd"
+      },
+      {
+        "group": "Методанные",
+        "skills": [
+          {
+            "skill": "Метаданные",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b562-322c62d4adf5"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b562-2ee60b2d54a9"
+      },
+      {
+        "group": "HTML",
+        "skills": [
+          {
+            "skill": "Атрибуты",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b562-4115ded643bc"
+          },
+          {
+            "skill": "Таблицы",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b562-4bf978051fe5"
+          },
+          {
+            "skill": "Формы",
+            "level": "Good",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b562-54522ba01cd3"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b562-3e2ce4da03dc"
+      },
+      {
+        "group": "Медиа",
+        "skills": [
+          {
+            "skill": "Изображения",
+            "level": "Strong",
+            "priority": "Required",
+            "id": "01934899-83wwdf-7cc3-b562-631ebcb7303a"
+          },
+          {
+            "skill": "asd",
+            "level": "Strong",
+            "priority": "Required",
+            "id": "01934899-83dfx-7cc3-b562-631ebcb7303a"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b562-5b625f23e887"
+      },
+      {
+        "group": "Доступность Элементов",
+        "skills": [
+          {
+            "skill": "Доступность элементов",
+            "level": "Expert",
+            "priority": "Advanced",
+            "id": "01934899-83df-7cc3-b562-73bf552238f4"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b562-69d9443a1e1c"
+      },
+      {
+        "group": "CSS селекторы",
+        "skills": [
+          {
+            "skill": "Селекторы",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b562-83fadd04a70d"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b562-7a6c750df8b6"
+      },
+      {
+        "group": "ASDSDSASSDCSS",
+        "id": "asdasdas",
+        "skills": [
+          {
+            "skill": "asd измерения размеров",
+            "level": "Good",
+            "priority": "Required",
+            "id": "019348d99-83df-7cc3-b562-9d0f7b6de110"
+          }
+        ]
+      },
+      {
+        "group": "CSS",
+        "skills": [
+          {
+            "skill": "xxxЕдиницы измерения размеров",
+            "level": "Good",
+            "priority": "Required",
+            "id": "0193489s9-83df-7cc3-b562-9d0f7b6de110"
+          },
+          {
+            "skill": "Анимации",
+            "level": "Good",
+            "priority": "Advanced",
+            "id": "01934899-83df-7cc3-b562-a5f397d8a8ee"
+          },
+          {
+            "skill": "Z-индекс и позиционирование",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b562-ae07b1dc0ae1"
+          },
+          {
+            "skill": "Repain/Reflow",
+            "level": "Strong",
+            "priority": "Advanced",
+            "id": "01934899-83df-7cc3-b562-b129b23e9a73"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b562-91c01ccd54c6"
+      },
+      {
+        "group": "Скелет",
+        "skills": [
+          {
+            "skill": "Сетка",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b562-c29d80cef723"
+          },
+          {
+            "skill": "Grid",
+            "level": "Good",
+            "priority": "Advanced",
+            "id": "01934899-83df-7cc3-b562-cd006bde89d4"
+          },
+          {
+            "skill": "Flex",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b562-d40da7580137"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b562-b827df58e909"
+      },
+      {
+        "group": "Отзывчивый дизайн",
+        "skills": [
+          {
+            "skill": "Отзывчивый Дизайн",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b562-e36816efded5"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b562-dc1b7a2c9801"
+      }
+    ],
+    "id": "01934899-83df-7cc3-b562-0f7262c36b15"
+  },
+  {
+    "block": "CasdasdSS/HTML",
+    "id": "22asdas",
+    "groups": [
+      {
+        "group": "2342355 HTML",
+        "id": "asdasd",
+        "skills": [
+          {
+            "skill": "42343234 документа",
+            "level": "Base",
+            "priority": "Required",
+            "id": "0193x823499-83df-7cc3-b562-1fc504729730"
+          },
+          {
+            "skill": "34234 документа",
+            "level": "Base",
+            "priority": "Required",
+            "id": "243234-83df-7cc3-b562-1fc504729730"
+          }
+        ]
+      }, {
+        "group": "2342333355 HTML",
+        "id": "asda2342323sd",
+        "skills": [
+          {
+            "skill": "     документа",
+            "level": "Base",
+            "priority": "Required",
+            "id": "0193x4823499-83df-7cc3-b562-1fc504729730"
+          },
+          {
+            "skill": "3xxxx4234 документа",
+            "level": "Base",
+            "priority": "Required",
+            "id": "24323dd4-83df-7cc3-b562-1fc504729730"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "block": "JavaScript",
+    "groups": [
+      {
+        "group": "CSS",
+        "skills": [
+          {
+            "skill": "Repain/Reflow",
+            "level": "Strong",
+            "priority": "Advanced",
+            "id": "01934899-83df-7cc3-b562-ff9e0ab70f06"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b562-f13a9d2cd2d0"
+      },
+      {
+        "group": "Переменные",
+        "skills": [
+          {
+            "skill": "Var, Let, Const",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b563-0fc1be3d3b25"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b563-04df8a0f2e0d"
+      },
+      {
+        "group": "Область видимости",
+        "skills": [
+          {
+            "skill": "Поднятие",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b563-1ef6e09f5dca"
+          },
+          {
+            "skill": "Глобальная видимость",
+            "level": "Good",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b563-2720d61eb988"
+          },
+          {
+            "skill": "Блочная видимость",
+            "level": "Good",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b563-2d40d2031a7b"
+          },
+          {
+            "skill": "Функциональная видимость",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b563-339240b0f389"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b563-16418e111507"
+      },
+      {
+        "group": "Типы",
+        "skills": [
+          {
+            "skill": "Примитивы",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b563-463dd0c09107"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b563-3ed46046bb78"
+      },
+      {
+        "group": "Типы/Объекты",
+        "skills": [
+          {
+            "skill": "Объекты",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b563-5675c04eee7e"
+          },
+          {
+            "skill": "Прототипное наследование",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b563-5e05e95c95f8"
+          },
+          {
+            "skill": "Преобразование типов",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b563-67350212da49"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b563-4bb1a1ae37b5"
+      },
+      {
+        "group": "Структура Данных",
+        "skills": [
+          {
+            "skill": "Структура данных",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b563-75d65f336199"
+          },
+          {
+            "skill": "Коллекции с ключами",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b563-7e921adb3cde"
+          },
+          {
+            "skill": "JSON",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b563-82cb5922df94"
+          },
+          {
+            "skill": "Массив",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b563-8e58b2524f03"
+          },
+          {
+            "skill": "Типизированный массив",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b563-954402278358"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b563-6869cdf3fd8f"
+      },
+      {
+        "group": "Map/Set",
+        "skills": [
+          {
+            "skill": "Map, Set",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b563-a7ae5dcb763c"
+          },
+          {
+            "skill": "WeakMap, WeakSet",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b563-ad8a776ad6b5"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b563-996ea8777866"
+      },
+      {
+        "group": "События",
+        "skills": [
+          {
+            "skill": "Event",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b563-bd8223799a39"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b563-b0faa9a07494"
+      },
+      {
+        "group": "Операторы сравнения",
+        "skills": [
+          {
+            "skill": "Операторы == и ===",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b563-cc3845cf38cd"
+          },
+          {
+            "skill": "Оператор Objest.is",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b563-d358223ac8ae"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b563-c60f6f80d267"
+      },
+      {
+        "group": "Интерации и циклы",
+        "skills": [
+          {
+            "skill": "for, while, do while",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b563-e27b740d8c8b"
+          },
+          {
+            "skill": "break/continue, for... of, for... in",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b563-eb177d4b8065"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b563-d926e209951f"
+      },
+      {
+        "group": "Контроль состояний",
+        "skills": [
+          {
+            "skill": "if... else, switch",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b563-fdd40b0630eb"
+          },
+          {
+            "skill": "Инструкция throw",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b564-055366f595d9"
+          },
+          {
+            "skill": "try/catch/finnaly",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b564-0b8009c561ef"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b563-f09f164bcc7b"
+      },
+      {
+        "group": "Выражения и операторы",
+        "skills": [
+          {
+            "skill": "Тернарный оператор ?:",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b564-1a76984087e9"
+          },
+          {
+            "skill": "Оператор typeof",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b564-24792a76d84a"
+          },
+          {
+            "skill": "Приоритет операторов",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b564-29557d309e2f"
+          },
+          {
+            "skill": "Оператор расширения",
+            "level": "Good",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b564-356c9ddc9338"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b564-15ef6827919f"
+      },
+      {
+        "group": "Виды операторов",
+        "skills": [
+          {
+            "skill": "Арифметические операторы",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b564-4294dc7a8816"
+          },
+          {
+            "skill": "Битовые (поразрядные) операторы",
+            "level": "Expert",
+            "priority": "Advanced",
+            "id": "01934899-83df-7cc3-b564-4d1c82dd4728"
+          },
+          {
+            "skill": "Логические операторы",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83df-7cc3-b564-51ad726a2646"
+          },
+          {
+            "skill": "Строковые операторы",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83df-7cc3-b564-5aab700a3d31"
+          }
+        ],
+        "id": "01934899-83df-7cc3-b564-3f1d18533bbc"
+      },
+      {
+        "group": "Функция",
+        "skills": [
+          {
+            "skill": "Параметры функции",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b564-6e73d4ed03c8"
+          },
+          {
+            "skill": "Стрелочная функция",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b564-750a008dd4ec"
+          },
+          {
+            "skill": "IIFE",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b564-7af699726ebc"
+          },
+          {
+            "skill": "Стек вызовов",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b564-8350cc8e6b84"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b564-61d15169f1ff"
+      },
+      {
+        "group": "Лексическое окружение",
+        "skills": [
+          {
+            "skill": "Рекурсия",
+            "level": "Good",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b564-97aea3da8b78"
+          },
+          {
+            "skill": "Лексическое окружение",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b564-99b7f4cb11ce"
+          },
+          {
+            "skill": "Замыкание",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b564-a1f0b8c28f9e"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b564-8d5bc2b4786e"
+      },
+      {
+        "group": "this",
+        "skills": [
+          {
+            "skill": "call, apply, bind",
+            "level": "Good",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b564-b4c92b20fba6"
+          },
+          {
+            "skill": "this в методах и функция",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b564-bebdec78a77b"
+          },
+          {
+            "skill": "this в обработчиках событий",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b564-c4a2e7b41bd1"
+          },
+          {
+            "skill": "this в стрелочной функции",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b564-c985a3cb0056"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b564-ad27d48d67a0"
+      },
+      {
+        "group": "Асинхронный JS",
+        "skills": [
+          {
+            "skill": "Callback",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b564-dfa9cee6fe88"
+          },
+          {
+            "skill": "SetTimeout, SetInterval",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b564-e7055fe0d6df"
+          },
+          {
+            "skill": "EventLoop",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b564-ea059df844e2"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b564-d779fe4a0514"
+      },
+      {
+        "group": "Promise",
+        "skills": [
+          {
+            "skill": "Promise",
+            "level": "Good",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b564-fc9601b5de32"
+          },
+          {
+            "skill": "async/await",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b565-01ce0d5c4873"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b564-f570dcfcd390"
+      },
+      {
+        "group": "Работа запросами",
+        "skills": [
+          {
+            "skill": "XHR",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-1566b0ae5ad8"
+          },
+          {
+            "skill": "Fetch",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b565-1df0e0815d0a"
+          },
+          {
+            "skill": "Socket",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-24290aa6ff5d"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b565-0c629192d954"
+      }
+    ],
+    "id": "01934899-83df-7cc3-b562-ebb0e9648280"
+  },
+  {
+    "block": "TypeScript",
+    "groups": [
+      {
+        "group": "Работа запросами",
+        "skills": [
+          {
+            "skill": "Socket",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-3d78326c22bb"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b565-32da4e2772e3"
+      },
+      {
+        "group": "Типы",
+        "skills": [
+          {
+            "skill": "Объекты типов: enum, interface, class, array",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b565-499fb7d0f962"
+          },
+          {
+            "skill": "Утверждения типов as [type]",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-56afab77528f"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b565-451475e4db20"
+      },
+      {
+        "group": "Не определенные",
+        "skills": [
+          {
+            "skill": "any, unknow, never",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-639d1ea21d52"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b565-5acae840d7b8"
+      },
+      {
+        "group": "Защита типов",
+        "skills": [
+          {
+            "skill": "instanceof, typeof",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-760760b7dbce"
+          },
+          {
+            "skill": "Операторы сравнения switch, if/else",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-7aeeaa966a5b"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b565-6af78f4daa16"
+      },
+      {
+        "group": "Функции",
+        "skills": [
+          {
+            "skill": "Типизация функции",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-8f70903776bb"
+          },
+          {
+            "skill": "Перезагрузка функции",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-910e7361840a"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b565-842bfd3ef730"
+      },
+      {
+        "group": "Generic",
+        "skills": [
+          {
+            "skill": "Обобщенные типы <T>",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-a375f1b1f3ba"
+          },
+          {
+            "skill": "Наследование (ограничение)",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-a8988c9ec591"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b565-9c7936ff81ef"
+      },
+      {
+        "group": "Утилиты",
+        "skills": [
+          {
+            "skill": "Объектные: Partial, Required, Readonly, Record, Pick, Omit",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-b837f40fb81d"
+          },
+          {
+            "skill": "Объеденяющие: Exclude, Extract, NonNullable ",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-c301b4219f79"
+          },
+          {
+            "skill": "Функциональные: Parameters, ReturnType",
+            "level": "Expert",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-cfa6ac274a8f"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b565-b462d14708db"
+      }
+    ],
+    "id": "01934899-83e0-7cc3-b565-2817690a7f90"
+  },
+  {
+    "block": "React",
+    "groups": [
+      {
+        "group": "Утилиты",
+        "skills": [
+          {
+            "skill": "Функциональные: Parameters, ReturnType",
+            "level": "Expert",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-e74a834e57e9"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b565-dc59f28bcd1b"
+      },
+      {
+        "group": "Компоненты",
+        "skills": [
+          {
+            "skill": "Функциональный компонент",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b565-f008ac0153b8"
+          },
+          {
+            "skill": "JSX",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b565-fe816d8c3429"
+          },
+          {
+            "skill": "Props и State",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b566-01d8151b0ceb"
+          },
+          {
+            "skill": "Отрисовка состояний",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b566-0d2301962c72"
+          },
+          {
+            "skill": "Составление композиций",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-14352fb3c6e2"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b565-ef6ed28615e9"
+      },
+      {
+        "group": "Отрисовка",
+        "skills": [
+          {
+            "skill": "Жизненный цикл компонента",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b566-24385b4c5813"
+          },
+          {
+            "skill": "Списки и ключи",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-2a5668eeef6e"
+          },
+          {
+            "skill": "Передача props",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b566-35ea0935a6ce"
+          },
+          {
+            "skill": "Обработка событий",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-3b8a01a2e4ce"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b566-19451e6b46e6"
+      },
+      {
+        "group": "Refs",
+        "skills": [
+          {
+            "skill": "Refs",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-49942da56895"
+          },
+          {
+            "skill": "Хранение между рендерами",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-567ec73d52ed"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b566-420cf9288b3b"
+      },
+      {
+        "group": "Паттерны",
+        "skills": [
+          {
+            "skill": "HOC",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-600359bbfc1e"
+          },
+          {
+            "skill": "Композиция",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-6f1d8a6dc7cc"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b566-5d1beb529709"
+      },
+      {
+        "group": "Hooks",
+        "skills": [
+          {
+            "skill": "Базовые: useState, useEffect",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b566-7ad6e031cbdd"
+          },
+          {
+            "skill": "Дополнительные: useMemo, useRef, useCallback, useContext, useReduce",
+            "level": "Good",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b566-86a09fb50b04"
+          },
+          {
+            "skill": "Собственные (самописные)",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-8ba21046a33c"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b566-731bc3bd296b"
+      },
+      {
+        "group": "Routers",
+        "skills": [
+          {
+            "skill": "React Router",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-9ae3dbe9793b"
+          },
+          {
+            "skill": "Tanstak",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-a02298d1fb52"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b566-96878f52f4df"
+      },
+      {
+        "group": "Управление состоянием",
+        "skills": [
+          {
+            "skill": "Redux ToolKit",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-b1a91d39359b"
+          },
+          {
+            "skill": "MobX",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-bd4cb543ed5e"
+          },
+          {
+            "skill": "Context",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-c1210b988a4b"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b566-ae68b5a60478"
+      },
+      {
+        "group": "Работа с CSS",
+        "skills": [
+          {
+            "skill": "CSS Module",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-d6a7e8c4d65b"
+          },
+          {
+            "skill": "Tailwind CSS",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-dc825ffdded7"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b566-ce5509b99231"
+      },
+      {
+        "group": "Библиотека компонентов",
+        "skills": [
+          {
+            "skill": "Библиотеки компонентов: Material UI, Chakra UI, Ant e.t.c",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-e876f3d5d4dd"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b566-e2f799cf50ce"
+      },
+      {
+        "group": "Работа с запросами",
+        "skills": [
+          {
+            "skill": "Axios",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b566-fd2ee0e6315c"
+          },
+          {
+            "skill": "RTK-query",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b567-005e7b0525a3"
+          },
+          {
+            "skill": "react-query",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b567-0c87db510466"
+          },
+          {
+            "skill": "Apollo",
+            "level": "Strong",
+            "priority": "Advanced",
+            "id": "01934899-83e0-7cc3-b567-13bae2d24cc9"
+          },
+          {
+            "skill": "Relay",
+            "level": "Expert",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b567-1ed5d799c98e"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b566-f7eca3f34294"
+      },
+      {
+        "group": "Формы",
+        "skills": [
+          {
+            "skill": "React Hook Form",
+            "level": "Strong",
+            "priority": "Advanced",
+            "id": "01934899-83e0-7cc3-b567-2a4c2a0b5732"
+          },
+          {
+            "skill": "Formik",
+            "level": "Strong",
+            "priority": "Advanced",
+            "id": "01934899-83e0-7cc3-b567-32ebc0847113"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b567-20c420d133c5"
+      },
+      {
+        "group": "Тесты",
+        "skills": [
+          {
+            "skill": "Cypress",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b567-461b60ec5767"
+          },
+          {
+            "skill": "Playwright",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b567-4c770d14230f"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b567-3b9eed221186"
+      }
+    ],
+    "id": "01934899-83e0-7cc3-b565-d44de6123eec"
+  },
+  {
+    "block": "NodeJS",
+    "groups": [
+      {
+        "group": "Тесты",
+        "skills": [
+          {
+            "skill": "Playwright",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b567-663b6e426315"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b567-594c5052d797"
+      },
+      {
+        "group": "System",
+        "skills": [
+          {
+            "skill": "Buffer",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b567-76ff57368579"
+          },
+          {
+            "skill": "Files",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b567-7f4868614866"
+          },
+          {
+            "skill": "__filename",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b567-86a58599bbb1"
+          },
+          {
+            "skill": "__dirname",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b567-8e5b3ef0b679"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b567-6e3bfe38b555"
+      },
+      {
+        "group": "Process",
+        "skills": [
+          {
+            "skill": "env",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b567-99bd1bf2b3fb"
+          },
+          {
+            "skill": "stdin / stdout",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b567-a497c65fca6f"
+          },
+          {
+            "skill": "Graceful Shutdown (signals)",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b567-af929ed76d20"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b567-93fe28d27721"
+      },
+      {
+        "group": "Async",
+        "skills": [
+          {
+            "skill": "EventEmitter",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b567-bc4ffe1b5949"
+          },
+          {
+            "skill": "Timers",
+            "level": "Good",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b567-c5af99ebbdd5"
+          },
+          {
+            "skill": "queueMicrotask",
+            "level": "Expert",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b567-cd7217e6ebb6"
+          },
+          {
+            "skill": "Eventloop",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b567-d5036b730562"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b567-b53f17f2405f"
+      },
+      {
+        "group": "Streams",
+        "skills": [
+          {
+            "skill": "Writable stream",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b567-e32620569e68"
+          },
+          {
+            "skill": "Readable stream",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b567-eeb535cd4e34"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b567-df110abea76f"
+      },
+      {
+        "group": "Http(s)",
+        "skills": [
+          {
+            "skill": "Отличия http / https / tcp / upd",
+            "level": "Base",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b567-fe87b18dcc40"
+          },
+          {
+            "skill": "http.get",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b568-0484323a089f"
+          },
+          {
+            "skill": "http.createServer",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-0d49f2365d69"
+          },
+          {
+            "skill": "axios",
+            "level": "Good",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b568-167351a9e598"
+          },
+          {
+            "skill": "GraphQL",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-1957ee58b2ad"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b567-f6811e38eaa0"
+      },
+      {
+        "group": "Debug",
+        "skills": [
+          {
+            "skill": "Memory leak",
+            "level": "Expert",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-2955ba1ebe6e"
+          },
+          {
+            "skill": "--inspect",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-37b10f08ceb5"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b568-2122ddaac898"
+      },
+      {
+        "group": "Threds",
+        "skills": [
+          {
+            "skill": "Child_process",
+            "level": "Expert",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-40dbde8e4ac3"
+          },
+          {
+            "skill": "Cluster",
+            "level": "Expert",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-4e36dca220cd"
+          },
+          {
+            "skill": "Worker Threads",
+            "level": "Expert",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-54772bf0feef"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b568-3e7312516b21"
+      },
+      {
+        "group": "Servers",
+        "skills": [
+          {
+            "skill": "REST API",
+            "level": "Good",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b568-61fcb470c256"
+          },
+          {
+            "skill": "BFF",
+            "level": "Good",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b568-6f0a66eddb22"
+          },
+          {
+            "skill": "SSR",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-74f4be87c05f"
+          },
+          {
+            "skill": "WebSockets",
+            "level": "Expert",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-7e1ddbbf26ee"
+          },
+          {
+            "skill": "Apollo",
+            "level": "Good",
+            "priority": "Advanced",
+            "id": "01934899-83e0-7cc3-b568-801a01551821"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b568-5d10e979634f"
+      },
+      {
+        "group": "frameworks",
+        "skills": [
+          {
+            "skill": "NestJS",
+            "level": "Good",
+            "priority": "Advanced",
+            "id": "01934899-83e0-7cc3-b568-920100733264"
+          },
+          {
+            "skill": "ExpressJS",
+            "level": "Good",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b568-9af82c220a4b"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b568-89f70cf06733"
+      },
+      {
+        "group": "Databases",
+        "skills": [
+          {
+            "skill": "select / join / conditions",
+            "level": "Base",
+            "priority": "Required",
+            "id": "01934899-83e0-7cc3-b568-af2ea32837fc"
+          },
+          {
+            "skill": "Sequelize",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-b5070bdff93f"
+          },
+          {
+            "skill": "Mongo",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-bd67657c09a3"
+          },
+          {
+            "skill": "TypeORM",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-c46819596568"
+          },
+          {
+            "skill": "Prisma",
+            "level": "Strong",
+            "priority": "Advanced",
+            "id": "01934899-83e0-7cc3-b568-c936997015ed"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b568-a4cf3ad892d4"
+      },
+      {
+        "group": "Architecture",
+        "skills": [
+          {
+            "skill": "JWT",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-d9b8ae819186"
+          },
+          {
+            "skill": "Basic",
+            "level": "Good",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-e0d798740fc8"
+          },
+          {
+            "skill": "Caching",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-e89726efdd4c"
+          },
+          {
+            "skill": "redis",
+            "level": "Strong",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b568-f140e0ecf069"
+          },
+          {
+            "skill": "Queue",
+            "level": "Expert",
+            "priority": "Advanced",
+            "id": "01934899-83e0-7cc3-b568-f9423ea49198"
+          },
+          {
+            "skill": "Rabbit",
+            "level": "Strong",
+            "priority": "Advanced",
+            "id": "01934899-83e0-7cc3-b569-01c85d7f759d"
+          },
+          {
+            "skill": "Kafka",
+            "level": "Advanced",
+            "priority": "Normal",
+            "id": "01934899-83e0-7cc3-b569-0be5bc42debe"
+          }
+        ],
+        "id": "01934899-83e0-7cc3-b568-d451b48b3ba7"
+      }
+    ],
+    "id": "01934899-83e0-7cc3-b567-56902b913288"
+  }
+]

@@ -62,6 +62,7 @@ export const createColumns = ({ onChangeRole, onRemove }) => {
         );
       },
     },
+
     {
       field: 'remove',
       headerName: '',

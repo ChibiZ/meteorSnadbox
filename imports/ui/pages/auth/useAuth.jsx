@@ -18,11 +18,9 @@ export const useAuth = () => {
       },
       (error) => {
         if (error) {
-          alert('Username already exists');
-
           toast({
             title: 'Username already exists',
-            description: JSON.stringify(error),
+            description: error.reason,
             status: 'error',
             duration: 9000,
             isClosable: true,

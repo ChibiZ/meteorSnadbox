@@ -11,6 +11,8 @@ export type Node = {
     label: string;
     kind: NodeKind;
     style?: CSSProperties;
+    level: string;
+    priority: string;
   };
 
   position: {

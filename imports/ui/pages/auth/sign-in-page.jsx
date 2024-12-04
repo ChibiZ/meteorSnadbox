@@ -70,8 +70,10 @@ export function SignInPage() {
                   name="username"
                   required
                   onChange={(e) => setUsername(e.target.value)}
+                  placeholder="username"
                 />
               </FormControl>
+
               <FormControl isInvalid={!!errors.password}>
                 <InputGroup size="md">
                   <Input
@@ -80,6 +82,7 @@ export function SignInPage() {
                     name="password"
                     required
                     onChange={(e) => setPassword(e.target.value)}
+                    placeholder="password"
                   />
                   <InputRightElement width="4.5rem">
                     <Button
