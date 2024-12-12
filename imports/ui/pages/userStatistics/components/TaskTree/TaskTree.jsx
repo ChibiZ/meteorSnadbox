@@ -85,7 +85,7 @@ export const TaskTree = React.memo(({ data }) => {
           isExpandedAll={isExpandedAll}
         />
         <Tree expandAction="click" ref={treeRef}>
-          {Object.values(filteredTree.blocks).map((block) => (
+          {Object.values(filteredTree.blocks ?? {}).map((block) => (
             <TreeNode
               title={block.block}
               icon={<div className="tree-topic-node"></div>}

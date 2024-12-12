@@ -1,7 +1,9 @@
 import { useParams, useSearchParams } from 'react-router-dom';
-import { roadMapApi } from '/imports/ui/api';
+import { roadMapApi, usersApi } from '/imports/ui/api';
 import React from 'react';
 import { useToast } from '@chakra-ui/react';
+import { Meteor } from 'meteor/meteor';
+
 import { getStat } from '../roadmap/components/RoadMap/utils';
 
 export function useData() {
@@ -11,7 +13,7 @@ export function useData() {
 
   const roadmapId = searchParams.get('roadmapId');
   const [data, setData] = React.useState(null);
-  const [userStat, setUserStat] = React.useState(null);
+  const [userData, setUserData] = React.useState(null);
 
   const [isLoading, setLoading] = React.useState(true);
 
@@ -23,6 +25,8 @@ export function useData() {
           throw new Error(`Необходимо передать значение roadmapId.`);
         }
 
+        const user = await usersApi.getById(userId);
+
         const roadmap = await roadMapApi.getSchemeWithProgress({
           id: roadmapId,
           userId,
@@ -33,9 +37,12 @@ export function useData() {
           return;
         }
 
-        const stat = getStat(roadmap.rawScheme);
+        const statistics = getStat(roadmap.rawScheme);
 
-        setUserStat(stat);
+        setUserData({
+          ...user,
+          statistics,
+        });
         setData(roadmap.rawScheme);
 
         setLoading(false);
@@ -54,5 +61,5 @@ export function useData() {
     getData();
   }, []);
 
-  return { data, isLoading, userStat };
+  return { data, isLoading, userData };
 }

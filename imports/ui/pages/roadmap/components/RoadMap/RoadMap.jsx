@@ -54,7 +54,7 @@ export const RoadMap = React.memo(({ isReadOnly }) => {
   const isEditable = !isReadOnly;
 
   React.useEffect(() => {
-    setNodes((prevNodes) => setStatusForNodes(prevNodes, roadmap.rawScheme));
+    setNodes((prevNodes) => setStatusForNodes(prevNodes, roadmap?.rawScheme));
   }, [roadmap]);
 
   const onConnect = useCallback(

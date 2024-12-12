@@ -9,17 +9,20 @@ export const useAuth = () => {
 
   const navigate = useNavigate();
 
-  const registerUser = async ({ username, password }) => {
+  const registerUser = async ({ name, password, surname, grade, email }) => {
     setLoading(true);
     Accounts.createUser(
       {
-        username: username,
-        password: password,
+        name,
+        password,
+        surname,
+        grade,
+        email,
       },
       (error) => {
         if (error) {
           toast({
-            title: 'Username already exists',
+            title: 'Пользователь уже существует',
             description: error.reason,
             status: 'error',
             duration: 9000,
@@ -31,7 +34,7 @@ export const useAuth = () => {
 
           return;
         }
-        Meteor.loginWithPassword(username, password).then(() => {
+        Meteor.loginWithPassword(name, password).then(() => {
           setLoading(false);
         });
         navigate('/');
@@ -39,10 +42,10 @@ export const useAuth = () => {
     );
   };
 
-  const loginUser = ({ username, password }) => {
+  const loginUser = ({ email, password }) => {
     setLoading(true);
 
-    Meteor.loginWithPassword(username, password, (error) => {
+    Meteor.loginWithPassword({ email }, password, (error) => {
       setLoading(false);
 
       if (error) {
@@ -53,10 +56,39 @@ export const useAuth = () => {
           duration: 9000,
           isClosable: true,
         });
+        console.log(error);
 
         return;
       }
       navigate('/');
+    });
+  };
+
+  const changePassword = ({ password, newPassword }) => {
+    setLoading(true);
+
+    Accounts.changePassword(password, newPassword, (error) => {
+      setLoading(false);
+
+      if (error) {
+        toast({
+          title: 'Ошибка смены пароля',
+          description: JSON.stringify(error),
+          status: 'error',
+          duration: 9000,
+          isClosable: true,
+        });
+        console.log(error);
+
+        return;
+      }
+
+      toast({
+        title: 'Успешно',
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      });
     });
   };
 
@@ -66,5 +98,5 @@ export const useAuth = () => {
     });
   };
 
-  return { loginUser, registerUser, isLoading, logout };
+  return { loginUser, registerUser, isLoading, logout, changePassword };
 };

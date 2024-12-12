@@ -75,6 +75,9 @@ export class UsersApi {
       id,
     });
   }
+  async getById(id) {
+    return Meteor.callAsync('accounts.getById1', { id });
+  }
 }
 
 class SkillContentApi {

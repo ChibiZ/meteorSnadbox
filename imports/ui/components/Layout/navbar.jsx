@@ -14,6 +14,8 @@ import { Avatar } from '@chakra-ui/react';
 import { Logout } from '../logout';
 import { Logo } from '../Logo';
 import { Link } from 'react-router-dom';
+import { getFullName } from '../../shared/formats';
+
 export function Navbar() {
   const user = useTracker(() => Meteor.user());
 
@@ -46,7 +48,7 @@ export function Navbar() {
         <Stack justify="flex-end" alignItems={'center'} direction="row">
           {user && (
             <span>
-              {user.username}{' '}
+              {getFullName(user)}{' '}
               <Avatar name={user.username} size={'xs'} bg="green.500" />
             </span>
           )}

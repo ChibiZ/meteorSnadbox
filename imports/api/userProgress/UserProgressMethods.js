@@ -66,7 +66,7 @@ Meteor.methods({
     const { roadmapId } = data;
 
     const [users, usersTasks] = await Promise.all([
-      Accounts.users.find({}, { sort: { createdAt: -1 } }).fetchAsync(),
+      Meteor.users.find({}, { sort: { createdAt: -1 } }).fetchAsync(),
       UserProgressCollection.find({
         [`roadmapId.${roadmapId}`]: { $exists: true },
       }).fetchAsync(),
@@ -77,6 +77,10 @@ Meteor.methods({
       username: user.username,
       createdAt: user.createdAt,
       role: user.role,
+      name: user.name,
+      grade: user.grade,
+      surname: user.surname,
+      email: user.emails?.[0]?.address,
       progress: usersTasks.find((task) => task._id === user._id)?.roadmapId[
         roadmapId
       ],

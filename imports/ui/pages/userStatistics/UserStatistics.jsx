@@ -1,22 +1,19 @@
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
-import { useTracker } from 'meteor/react-meteor-data';
+import { Alert, AlertIcon, Stack } from '@chakra-ui/react';
+
 import { Loading } from '/imports/ui/components/loading';
 import { ProfileInfo } from './components/ProfileInfo';
 import { useData } from './useData';
 import { TaskTree } from './components/TaskTree';
-import { Alert, AlertIcon, Stack } from '@chakra-ui/react';
 
 const UserStatistics = () => {
-  const user = useTracker(() => Meteor.user());
-
-  const { isLoading, data, userStat } = useData();
+  const { isLoading, data, userData } = useData();
 
   if (isLoading) return <Loading />;
 
   return (
     <div style={{ overflow: 'auto', maxHeight: '100%' }}>
-      <ProfileInfo user={user} data={userStat} />
+      <ProfileInfo data={userData} />
       {data ? (
         <TaskTree data={data} />
       ) : (

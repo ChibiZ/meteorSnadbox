@@ -2,11 +2,18 @@ import { Button, FormControl, IconButton, Switch } from '@chakra-ui/react';
 import React from 'react';
 import { DeleteIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
+import { getFullName } from '../../shared/formats';
+import { getGradeTitleById } from '../../shared';
 export const createColumns = ({ onChangeRole, onRemove }) => {
   return [
     { field: 'id', width: 100, headerName: 'ID' },
     {
-      field: 'username',
+      field: 'email',
+      width: 200,
+      headerName: 'Email',
+    },
+    {
+      field: 'name',
       width: 200,
       headerName: 'Имя',
       cellRenderer: (props) => {
@@ -15,12 +22,30 @@ export const createColumns = ({ onChangeRole, onRemove }) => {
             to={`/statistics/${props.data.id}?roadmapId=${props.data.roadmapId}`}
             style={{ textDecoration: 'underline' }}
           >
-            {props.data.username}
+            {getFullName(props.data)}
           </Link>
         );
       },
     },
-    { field: 'createdAt', width: 150, headerName: 'Создан' },
+    {
+      field: 'grade',
+      width: 230,
+      headerName: 'Грейд',
+
+      valueFormatter: (params) => {
+        const name = getGradeTitleById(params.value);
+        if (!name) return '-';
+
+        const iconByGrade = {
+          1: '🥉',
+          2: '🥈',
+          3: '🥇',
+        };
+
+        return `${name} ${iconByGrade[params.value]}`;
+      },
+    },
+
     { field: 'done', width: 100, headerName: 'Done' },
     { field: 'inProgress', width: 120, headerName: 'In progress' },
     {
@@ -62,6 +87,7 @@ export const createColumns = ({ onChangeRole, onRemove }) => {
         );
       },
     },
+    { field: 'createdAt', width: 150, headerName: 'Создан' },
 
     {
       field: 'remove',

@@ -39,6 +39,7 @@ export function useTableData() {
           inProgress: inProgressTaskCount,
           percent: percent,
           total,
+
           roadmapId: lastCreatedRoadmap._id,
         };
       });

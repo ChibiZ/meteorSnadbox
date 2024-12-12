@@ -30,3 +30,22 @@ export const LEVELS = [
     name: 'Expert',
   },
 ];
+
+export const GRADES = [
+  {
+    id: '1',
+    name: 'Младший разработчик',
+  },
+  {
+    id: '2',
+    name: 'Разработчик',
+  },
+  {
+    id: '3',
+    name: 'Старший разработчик',
+  },
+];
+
+export const getGradeTitleById = (id) => {
+  return GRADES.find((grade) => grade.id === id)?.name ?? null;
+};
