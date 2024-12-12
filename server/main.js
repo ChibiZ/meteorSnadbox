@@ -27,7 +27,6 @@ Meteor.startup(async () => {
     username: 'admin',
     role: 'Admin',
   });
-  console.log(user);
 
   if (!user.email) {
     await Accounts.addEmailAsync(user._id, ADMIN_EMAIL, false);
