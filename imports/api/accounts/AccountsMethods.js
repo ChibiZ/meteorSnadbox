@@ -51,7 +51,7 @@ Meteor.methods({
 });
 
 Meteor.methods({
-  'accounts.getById1': async ({ id }) => {
+  'accounts.getById': async ({ id }) => {
     const currentUser = await Meteor.user();
     if (currentUser.role !== Roles.Admin) {
       throw new Meteor.Error(403, 'Forbidden!');

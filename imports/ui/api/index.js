@@ -76,7 +76,7 @@ export class UsersApi {
     });
   }
   async getById(id) {
-    return Meteor.callAsync('accounts.getById1', { id });
+    return Meteor.callAsync('accounts.getById', { id });
   }
 }
 
